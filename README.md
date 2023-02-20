@@ -1,0 +1,3 @@
+# Projects for the CodeGorilla bootcamp
+
+On February 13th 2023 I started the [CodeGorilla](https://codegorilla.nl/) bootcamp. In this repository I will keep track of my projects. The bootcamp will last for 16 weeks and will end with a larger project.
