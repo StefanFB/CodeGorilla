@@ -1,0 +1,26 @@
+body {
+    background-color: lightgray;
+    font-size: 32px;
+    display: flex;
+    height: 98vh;
+    width: 98vw;
+    justify-content: center;
+    align-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+kbd {
+    background-color: white;
+    border: 3px solid black;
+    display: inline-block;
+    text-align: center;
+    height: 400px;
+    width: 100px;
+    margin: auto 0 auto 0;
+    line-height: 20;
+}
