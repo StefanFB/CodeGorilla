@@ -1,24 +1,31 @@
 document.addEventListener("keypress", function(event) {
     if (event.code == "KeyA") {
-        console.log("The 'A' key is pressed.")
+        let audio = new Audio("white_keys/A.mp3");
+        audio.play();
     }
     else if (event.code == "KeyS") {
-        console.log("The 'S' key is pressed.")
+        let audio = new Audio("white_keys/S.mp3");
+        audio.play();
     }
     else if (event.code == "KeyD") {
-        console.log("The 'D' key is pressed.")
+        let audio = new Audio("white_keys/D.mp3");
+        audio.play();
     }
     else if (event.code == "KeyF") {
-        console.log("The 'F' key is pressed.")
+        let audio = new Audio("white_keys/F.mp3");
+        audio.play();
     }
     else if (event.code == "KeyG") {
-        console.log("The 'G' key is pressed.")
+        let audio = new Audio("white_keys/G.mp3");
+        audio.play();
     }
     else if (event.code == "KeyH") {
-        console.log("The 'H' key is pressed.")
+        let audio = new Audio("white_keys/H.mp3");
+        audio.play();
     }
     else if (event.code == "KeyJ") {
-        console.log("The 'J' key is pressed.")
+        let audio = new Audio("white_keys/J.mp3");
+        audio.play();
     }
     else {
         console.log("Warning: unboundkey is pressed.")
