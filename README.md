@@ -4,3 +4,6 @@ On February 13th 2023 I started the [CodeGorilla](https://codegorilla.nl/) bootc
 
 ## 1 - Flashcards
 The first project was to create a simple webpage showing flashcards. I learned how to do positioning with Flexbox and make animations with only CSS.
+
+## 2 - Virtual Piano
+The second project was to create a simple webpage showing some pianokeys. I learned how to let a sound play when a certain keyboard key is pressed, doing so with JS.
