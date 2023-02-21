@@ -8,13 +8,23 @@ body {
     align-content: center;
 }
 
-.container {
+.container, .white-keys {
     display: flex;
     justify-content: center;
     align-content: center;
+    position: relative;
+    left: 150px;
 }
 
-kbd {
+.black-keys {
+    display: flex;
+    position: relative;
+    top: -100px;
+    right: 550px;
+    z-index: 1;
+}
+
+.white-keys kbd {
     background-color: white;
     border: 3px solid black;
     display: inline-block;
@@ -23,4 +33,24 @@ kbd {
     width: 100px;
     margin: auto 0 auto 0;
     line-height: 20;
+}
+
+.black-keys kbd {
+    background-color: black;
+    border: 3px solid black;
+    display: inline-block;
+    text-align: center;
+    color: white;
+    height: 200px;
+    width: 80px;
+    margin: auto 10px auto 10px;
+    line-height: 10;
+}
+
+.black-keys kbd:nth-of-type(1){
+    margin: auto 10px auto 20px;
+}
+
+.black-keys kbd:nth-of-type(3){
+    margin: auto 10px auto 115px;
 }
