@@ -15,6 +15,7 @@ Create three hardcoded tasks inside the <ul> element. Wrap each task in <li> tag
 * <button> element with the delete-btn class. Leave it as it is. In this stage, when users click on it, this button should do nothing.
 There is no need to implement the business logic of adding new tasks, marking them as complete, and deleting them. You can use any design you want.
 
+  
 ## Stage 2
 ### Objectives
 If a user enters a task name to the input field and presses the button with the #add-task-button id, the program should wrap the task in <li> tags and add it to the end of the <ul> tag.
@@ -30,6 +31,7 @@ A task must have a name to be successfully added to a task list.
 
 Also, do not remove the hardcoded tasks from the previous stage.
 
+  
 ## Stage 3
 ### Objectives
 A task should be marked as complete when a user clicks on the task checkbox. When the checkbox is checked, the <span> element with the task class should have the following properties:
@@ -37,6 +39,7 @@ A task should be marked as complete when a user clicks on the task checkbox. Whe
 `text-decoration: line-through;`
 If the checkbox is unchecked, remove these properties from the <span> element.
 
+  
 ## Stage 4
 ### bjectives
 We need to make our program fetch the to-do list from local storage and display the tasks with their states. Also, we need to make the program update the task list in local storage in the following cases:
