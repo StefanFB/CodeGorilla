@@ -3,26 +3,39 @@
     <head>
         <meta charset="UTF-8">
         <title>To-Do List</title>
+        <link href="styles.css" rel="stylesheet">
     </head>
     <body>
         <input id="input-task">
-        <button id="add-task-button">Add</button>
+        <button id="add-task-button" onclick="addTask()">Add</button>
         <ul id="task-list">
             <li>
-                <input type="checkbox">
+                <input type="checkbox" onclick="lineThrough()">
                 <span class="task">Task one</span>
-                <button class="delete-btn">Remove</button>
+                <button class="delete-btn" onclick="this.parentNode.remove()">Remove</button>
             </li>
             <li>
                 <input type="checkbox">
                 <span class="task">Task two</span>
-                <button class="delete-btn">Remove</button>
+                <button class="delete-btn" onclick="this.parentNode.remove()">Remove</button>
             </li>
             <li>
                 <input type="checkbox">
-                <span class="task">Task three</span>
-                <button class="delete-btn">Remove</button>
+                <span id="testje" class="task">Task three</span>
+                <button class="delete-btn" onclick="this.parentNode.remove()">Remove</button>
             </li>
         </ul>
+        <button type="button" onclick="testFunction()">Test Klik!</button>
+        <script>
+            function addTask () {
+                let newTask = document.getElementById("input-task").value;
+                if (newTask !== "") {
+                    let taskList = document.getElementById("task-list");
+                    let newTaskNode = '<li><input type="checkbox"><span class="task">' + newTask + '</span><button class="delete-btn" onclick="this.parentNode.remove()">Remove</button></li>';
+                    taskList.insertAdjacentHTML("beforeend", newTaskNode);
+                    document.getElementById("input-task").value = "";
+                }
+            }
+        </script>
     </body>
 </html>
