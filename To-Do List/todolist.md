@@ -3,7 +3,6 @@
 This is the directory for my To-Do List project!
 
 ## Stage 1
-
 ### Objectives
 
 Your HTML file should contain the following elements:
@@ -22,7 +21,6 @@ There is no need to implement the business logic of adding new tasks, marking th
 
   
 ## Stage 2
-  
 ### Objectives
   
 If a user enters a task name to the input field and presses the button with the #add-task-button id, the program should wrap the task in `<li>` tags and add it to the end of the `<ul>` tag.
