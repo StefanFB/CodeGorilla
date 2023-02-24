@@ -2,7 +2,10 @@
 
 This is the directory for my To-Do List project!
 
+---
+
 ## Stage 1
+
 ### Objectives
 
 Your HTML file should contain the following elements:
@@ -19,8 +22,10 @@ Create three hardcoded tasks inside the ``<ul>`` element. Wrap each task in `<li
   
 There is no need to implement the business logic of adding new tasks, marking them as complete, and deleting them. You can use any design you want.
 
+---
   
 ## Stage 2
+
 ### Objectives
   
 If a user enters a task name to the input field and presses the button with the #add-task-button id, the program should wrap the task in `<li>` tags and add it to the end of the `<ul>` tag.
@@ -36,6 +41,7 @@ A task must have a name to be successfully added to a task list.
 
 Also, do not remove the hardcoded tasks from the previous stage.
 
+---
   
 ## Stage 3
   
@@ -46,6 +52,7 @@ A task should be marked as complete when a user clicks on the task checkbox. Whe
 `text-decoration: line-through;`
 If the checkbox is unchecked, remove these properties from the `<span> `element.
 
+---
   
 ## Stage 4
   
