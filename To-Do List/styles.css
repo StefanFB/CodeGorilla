@@ -1,3 +1,27 @@
+input[type="text"] {
+    margin: 25px 0 0 25px;
+}
+
+input[type="checkbox"] + span {
+    position: relative;
+    margin: 10px;
+    width: 300px;
+}
+
+button {
+    margin: 2px 10px;
+    align-self: center;
+}
+
 input[type="checkbox"]:checked + span {
     text-decoration: line-through;
+}
+
+li {
+    list-style-type: none;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    position: relative;
+    right: 20px;
 }
