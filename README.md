@@ -7,3 +7,6 @@ The first project was to create a simple webpage showing flashcards. I learned h
 
 ## 2 - Virtual Piano
 The second project was to create a simple webpage showing some pianokeys. I learned how to let a sound play when a certain keyboard key is pressed, doing so with JS.
+
+## 3 - To-Do List
+In this project I created a simple to-do list webpage. You can add and remove tasks, and mark a task as done. The list is saved by the browser
