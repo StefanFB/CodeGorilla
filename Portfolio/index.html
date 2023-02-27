@@ -7,47 +7,57 @@
 </head>
 <body>
     <header>
-        <h1>CodeGorilla Bootcamp Student</h1>
+        <div class="name">
+            <h1>CodeGorilla Bootcamp Student</h1>
+        </div>
         <nav>
-            <a href="#about">About Me</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contacts">Contacts</a>
+            <a class="navbar" href="#about">About Me</a>
+            <a class="navbar" href="#portfolio">Portfolio</a>
+            <a class="navbar" href="#contacts">Contacts</a>
         </nav>
     </header>
-    <div>
+    <main>
         <section class="about">
-            <div class="about-photo">
+            <div id="about" class="about__photo">
                 <img src="static/penguin.png" alt="notmyphoto">
             </div>
-            <div class="about-text">
-                <h2 id="about">About Me</h2>
+            <div class="about__text">
+                <h2>About Tux</h2>
                 <p>Meet Tux. Tux is a penguin character and the official brand character of the Linux kernel.
                     Originally created as an entry to a Linux logo competition, Tux is the most commonly used icon
                     for Linux, although different Linux distributions depict Tux in various styles. The character
                     is used in many other Linux programs and as a general symbol of Linux.  </p>
+                <p><b>Skills:</b> Sleeping, Eating</p>
             </div>
         </section>
-        <section>
+        <section class="portfolio">
             <h2 id="portfolio">Portfolio</h2>
-            <figure>
-                <img src="static/flashcards.png">
-                <figcaption>Project 1 - Flashcards</figcaption>
-            </figure>
-            <figure>
-                <img src="static/virtualpiano.png">
-                <figcaption>Project 2 - Virtual Piano</figcaption>
-            </figure>
-            <figure>
-                <img src="static/todolist.png">
-                <figcaption>Project 3 - To-Do List</figcaption>
-            </figure>
+            <div class="portfolio__items">
+                <figure>
+                    <img src="static/flashcards.png">
+                    <figcaption>Project 1 - Flashcards</figcaption>
+                </figure>
+                <figure>
+                    <img src="static/virtualpiano.png">
+                    <figcaption>Project 2 - Virtual Piano</figcaption>
+                </figure>
+                <figure>
+                    <img src="static/todolist.png">
+                    <figcaption>Project 3 - To-Do List</figcaption>
+                </figure>
+            </div>
         </section>
-    </div>
-    <section id="contacts">
-        <footer>
+        <section class="contacts">
+            <h2 id="contacts">Contact Information</h2>
+            <p>Phone: 0123-456789</p>
+            <p>E-mail: this_wont_work@example.com</p>
+        </section>
+    </main>
+    <footer>
+        <a href="https://github.com/StefanFB/CodeGorilla" target="_blank">
             <img src="static/github.svg" alt="Github icon">
-            <p>Stefan &#169; 2023</p>
-        </footer>
-    </section>
+        </a>
+        <p>Stefan &#169; 2023</p>
+    </footer>
 </body>
 </html>
