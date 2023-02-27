@@ -1,0 +1,138 @@
+/*
+Colors from coolors.co:
+Red Pantone:    #E63946
+Honeydew:       #F1FAEE
+Non Photo Blue: #A8DADC
+Cerulean:       #457B9D
+Berkeley Blue:  #1D3557
+ */
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-color: #A8DADC;
+    color: #1D3557;
+    display: block;
+    margin: 0 auto;
+    width: 60vw;
+    padding: 25px 30px 25px 30px;
+}
+
+img {
+    width: 400px;
+}
+
+/* Header - Nav-bar */
+header {
+    position: sticky;
+    position: -webkit-sticky;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    height: 10vh;
+    width: 100%;
+    background-color: #E63946;
+}
+
+header h1{
+    margin-right: 5vw;
+}
+
+nav {
+    display: flex;
+    height: 10vh;
+}
+
+.navbar {
+    position: relative;
+    background-color: #E63946;
+    padding: 4vh;
+    font-size: 20px;
+    color: #1D3557;
+    text-decoration: none;
+}
+
+header a:hover {
+    background-color: #F1FAEE;
+}
+
+/* About Me */
+#about {
+    scroll-margin-top: 8vh;
+}
+
+.about {
+    background-color: #F1FAEE;
+    display: flex;
+    padding-top: 10px;
+}
+
+.about__text {
+    margin-left: 25px;
+    align-self: center;
+}
+
+/* Portfolio items */
+#portfolio {
+    scroll-margin-top: 12vh;
+    margin-left: 15%;
+}
+
+.portfolio {
+    background-color: #F1FAEE;
+    margin-top: 25px;
+    padding: 25px 0 0 25px;
+}
+
+.portfolio__items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.portfolio__items figure {
+    align-self: center;
+    height: max-content;
+}
+
+.portfolio__items figcaption {
+    margin-top: 10px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Portfolio items */
+.contacts {
+    background-color: #F1FAEE;
+    margin-top: 25px;
+    padding: 25px 0 0 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Footer */
+
+footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 60vw;
+    padding: 1em 30px 0 30px;
+    background-color: #457B9D;
+}
+
+footer a {
+    justify-self: center;
+}
+
+footer img {
+    margin: auto 1em 1em auto;
+    width: 100px;
+    height: auto;
+}
