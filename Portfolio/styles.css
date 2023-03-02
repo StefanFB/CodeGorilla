@@ -23,6 +23,7 @@ main {
 
 img {
     width: 400px;
+    border-radius: 5%;
 }
 
 /* Header - Nav-bar */
@@ -32,9 +33,10 @@ header {
     display: flex;
     justify-content: center;
     top: 0;
-    height: 10vh;
+    height: 95px;
     width: 100%;
     background-color: #E63946;
+    z-index: 10;
 }
 
 header h1{
@@ -43,13 +45,13 @@ header h1{
 
 nav {
     display: flex;
-    height: 10vh;
+    height: 95px;
 }
 
 .navbar {
     position: relative;
     background-color: #E63946;
-    padding: 4vh;
+    padding: 40px;
     font-size: 20px;
     color: #1D3557;
     text-decoration: none;
@@ -67,7 +69,8 @@ header a:hover {
 .about {
     background-color: #F1FAEE;
     display: flex;
-    padding-top: 10px;
+    padding: 10px;
+    border-radius: 15px;
 }
 
 .about__text {
@@ -85,6 +88,7 @@ header a:hover {
     background-color: #F1FAEE;
     margin-top: 25px;
     padding: 25px 0 0 25px;
+    border-radius: 15px;
 }
 
 .portfolio__items {
@@ -103,11 +107,49 @@ header a:hover {
     text-align: center;
 }
 
-/* Portfolio items */
+/* Pop-up window */
+
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-content: center;
+    overflow: auto;
+    background-color: rgba(0,0,0,.4);
+}
+
+.window {
+    position: relative;
+    align-self: center;
+    display: none;
+    max-height: auto;
+    width: 40vw;
+    border: 3px solid #1D3557;
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px;
+    background-color: #A8DADC;
+    z-index: 3;
+}
+
+.windowtext {
+    margin: 25px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #F1FAEE;
+    height: auto;
+}
+
+/* Contacts section */
 .contacts {
     background-color: #F1FAEE;
     margin-top: 25px;
     padding: 25px 0 0 25px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
