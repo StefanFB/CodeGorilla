@@ -16,7 +16,28 @@ function closeWindow(n) {
 
 // When clicked outside the textbox, close it
 window.addEventListener("click", function(event) {
-    if (event.target == document.getElementById("modal")) {
+    if (event.target === document.getElementById("modal")) {
         closeWindow(projectNumber);
     }
 });
+
+// Toggle between adding / removing "responsive" class to navbar when hamburger-icon is clicked
+function showMenu() {
+    let navItem = document.getElementsByClassName("navbar-sm")
+    let menuIcon = document.getElementById("menu-icon");
+    let closeIcon = document.getElementById("close-icon");
+
+    if (menuIcon.style.display === "block") {
+        closeIcon.style.display = "block";
+        menuIcon.style.display = "none";
+        for (let i = 0; i < navItem.length; i++) {
+            navItem[i].style.display = "block";
+        }
+    } else {
+        closeIcon.style.display = "none";
+        menuIcon.style.display = "block";
+        for (let i = 0; i < navItem.length; i++) {
+            navItem[i].style.display = "none";
+        }
+    }
+}
