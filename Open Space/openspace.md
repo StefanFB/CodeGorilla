@@ -34,7 +34,10 @@ This is the directory of project 5: Open Space
 ---
 
 ## Stage 4
-###
+### Objectives
+
+1. All the inputs except the password field and the "ok" button should be disabled.
+2. All the inputs except the password field and the "ok" button should be enabled after the correct password (TrustNo1) has been entered.
 
 ---
 
