@@ -9,52 +9,85 @@ body {
 }
 
 .control-panel {
-    background-color: rgba(120,120,120,.6);
+    position: absolute;
+    bottom: 100px;
+    right: 200px;
+    background-color: yellow;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,1) 20px, rgba(0,0,0,1) 40px);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.control-panel__inner {
+    background-color: rgba(50,50,50,1);
     border-radius: 20px;
     padding: 80px 20px 20px 20px;
     width: 600px;
     height: 300px;
-    position: absolute;
-    bottom: 100px;
-    right: 200px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-content: center;
 }
 
-.control-panel div {
+.control-panel__inner div {
     margin: auto;
     padding: 20px;
     width: 90%;
 }
 
-.control-panel>input {
+.control-panel__inner>input {
     margin: 15px auto;
     padding: 0 20px;
     font-size: 1em;
 }
 
-.control-panel input[type="text"] {
+.control-panel__inner input[type="password"] {
     position: absolute;
-    top: 25px;
+    top: 40px;
     left: 120px;
     width: 250px;
+    border: 2px solid yellow;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
 }
 
-.control-panel input[type="submit"] {
+.control-panel__inner input[type="submit"] {
     position: absolute;
-    top: 25px;
+    top: 40px;
     left: 420px;
     width: 80px;
+    background-color: yellow;
+    border: 2px solid yellow;
+    border-radius: 15px;
 }
 
-.control-panel .check-buttons {
+.control-panel__inner input[type="submit"]:hover {
+    background-color: red;
+    color: white;
+}
+
+.control-panel__inner input[type="button"] {
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    border-radius: 15px;
+}
+
+.control-panel__inner input[type="button"]:hover {
+    background-color: yellow;
+    color: black;
+    border: 2px solid red;
+    border-radius: 15px;
+}
+
+.control-panel__inner .check-buttons {
     display: flex;
     justify-content: space-around;
 }
 
-.control-panel .levers {
+.control-panel__inner .levers {
     display: flex;
     justify-content: space-around;
 }
