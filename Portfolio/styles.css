@@ -10,6 +10,7 @@ Berkeley Blue:  #1D3557
 body{
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 main {
@@ -22,8 +23,9 @@ main {
 }
 
 img {
-    width: 400px;
+    max-width: 400px;
     border-radius: 5%;
+    flex-shrink: 1;
 }
 
 /* Header - Nav-bar */
@@ -35,12 +37,18 @@ header {
     top: 0;
     height: 95px;
     width: 100%;
-    background-color: #E63946;
+    background-color: #457B9D;
     z-index: 10;
 }
 
 header h1{
     margin-right: 5vw;
+    color: white;
+}
+
+header a:hover {
+    background-color: #A8DADC;
+    color: #1D3557;
 }
 
 nav {
@@ -48,17 +56,22 @@ nav {
     height: 95px;
 }
 
-.navbar {
+.navbar, .navbar-sm {
     position: relative;
-    background-color: #E63946;
+    background-color: #457B9D;
     padding: 40px;
     font-size: 20px;
-    color: #1D3557;
+    color: white;
     text-decoration: none;
 }
 
-header a:hover {
-    background-color: #F1FAEE;
+.navbar-icon, .navbar-closeicon {
+    display: none;
+    height: 50px;
+}
+
+.hamburger {
+    display: none;
 }
 
 /* About Me */
@@ -73,7 +86,12 @@ header a:hover {
     border-radius: 15px;
 }
 
+.about__photo {
+    flex: 1 2 200px;
+}
+
 .about__text {
+    flex: 1 1 200px;
     margin-left: 25px;
     align-self: center;
 }
@@ -107,8 +125,12 @@ header a:hover {
     text-align: center;
 }
 
-/* Pop-up window */
+.portfolio__items span {
+    width: auto;
+    height: auto;
+}
 
+/* Pop-up window */
 #modal {
     display: none;
     position: fixed;
@@ -157,7 +179,6 @@ header a:hover {
 }
 
 /* Footer */
-
 footer {
     position: relative;
     display: flex;
@@ -177,4 +198,56 @@ footer img {
     margin: auto 1em 1em auto;
     width: 100px;
     height: auto;
+}
+
+@media (max-width: 900px) {
+    /* Hide menu-items, show hamburger */
+    .fullMenu {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        position: fixed;
+        right: 0;
+    }
+
+    .name {
+        position: fixed;
+        top: 0;
+        left: 15px;
+    }
+
+    .navbar-icon, .navbar-closeicon {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+
+    .navbar-closeicon {
+        display: none;
+    }
+
+    img.tux {
+        max-width: 300px;
+        object-fit: scale-down;
+    }
+
+    .hamburger {
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+
+    .navbar-sm {
+        display: none;
+        float: none;
+        top: 95px;
+    }
+
+    /* Adapt other page elements */
+    .window {
+        width: 70vw;
+    }
 }
