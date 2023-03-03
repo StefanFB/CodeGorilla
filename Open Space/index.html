@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="styles.css" rel="stylesheet">
+    <script src="functions.js"></script>
     <title>Open Space</title>
 </head>
 <body>
@@ -13,24 +14,24 @@
         </div>
         <div class="control-panel">
             <div class="control-panel__inner">
-                <input type="password" placeholder="Enter password to unlock">
-                <input type="submit" onclick="myFunction()" value="OK">
+                <input id="password" type="password" placeholder="Enter password to unlock">
+                <input type="submit" onclick="password()" value="OK">
                 <div class="check-buttons">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" disabled>
+                    <input type="checkbox" disabled>
+                    <input type="checkbox" disabled>
+                    <input type="checkbox" disabled>
+                    <input type="checkbox" disabled>
+                    <input type="checkbox" disabled>
                 </div>
                 <div class="levers">
-                    <input type="range">
-                    <input type="range">
-                    <input type="range">
-                    <input type="range">
-                    <input type="range">
+                    <input type="range" disabled>
+                    <input type="range" disabled>
+                    <input type="range" disabled>
+                    <input type="range" disabled>
+                    <input type="range" disabled>
                 </div>
-                <input type="button" onclick="launch()" value="Launch!">
+                <input type="button" onclick="launch()" value="Launch!" disabled>
             </div>
         </div>
     </div>
