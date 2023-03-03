@@ -1,124 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
     <link href="styles.css" rel="stylesheet">
-    <title>Portfolio</title>
+    <script src="functions.js"></script>
+    <title>Open Space</title>
 </head>
 <body>
-    <header>
-        <div class="name">
-            <h1>CodeGorilla Bootcamp Student</h1>
+    <div class="space">
+        <div class="planet-area">
+            <img class="planet" src="static/mars.png" alt="Planet that we want to leave">
+            <img class="rocket" src="static/rocket.png" alt="Rocket to use to leave the planet">
         </div>
-        <nav id="topnav" class="fullMenu">
-            <a class="navbar" href="#about">About Me</a>
-            <a class="navbar" href="#portfolio">Portfolio</a>
-            <a class="navbar" href="#contacts">Contacts</a>
-        </nav>
-        <nav id="resnav" class="hamburger">
-            <a class="navbar-sm" href="#about">About Me</a>
-            <a class="navbar-sm" href="#portfolio">Portfolio</a>
-            <a class="navbar-sm" href="#contacts">Contacts</a>
-            <a href="javascript:void(0);" class="icon" onclick="showMenu()">
-                <img class="navbar-icon" id="menu-icon" src="static/list.svg" alt="Menu icon">
-                <img class="navbar-closeicon" id="close-icon" src="static/x-lg.svg" alt="Menu icon">
-            </a>
-        </nav>
-    </header>
-    <main>
-        <section class="about">
-            <div id="about" class="about__photo">
-                <img class="tux" src="static/penguin.png" alt="Photo of Tux, the Linux penguin (so not me)">
-            </div>
-            <div class="about__text">
-                <h2>About Tux</h2>
-                <p>Meet Tux. Tux is a penguin character and the official brand character of the Linux kernel.
-                    Originally created as an entry to a Linux logo competition, Tux is the most commonly used icon
-                    for Linux, although different Linux distributions depict Tux in various styles. The character
-                    is used in many other Linux programs and as a general symbol of Linux.  </p>
-                <p><b>Skills:</b> Sleeping, Eating</p>
-            </div>
-        </section>
-        <section class="portfolio">
-            <h2 id="portfolio">Portfolio</h2>
-            <div class="portfolio__items">
-                <figure class="portfolio__item">
-                    <img src="static/flashcards.png" alt="Screenshot of Flashcards project containing nine cards">
-                    <figcaption>Project 1 - Flashcards</figcaption>
-                    <span class="openBtn"><button class="open-window" onclick="openWindow(1)" value="1">More info</button></span>
-                </figure>
-                <figure class="portfolio__item">
-                    <img src="static/virtualpiano.png" alt="Screenshot of Virtual Piano project displaying the piano keys">
-                    <figcaption>Project 2 - Virtual Piano</figcaption>
-                    <span class="openBtn"><button class="open-window" onclick="openWindow(2)">More info</button></span>
-                </figure>
-                <figure class="portfolio__item">
-                    <img src="static/todolist.png" alt="Screenshot of To-Do List project listing both new and done tasks">
-                    <figcaption>Project 3 - To-Do List</figcaption>
-                    <span class="openBtn"><button class="open-window" onclick="openWindow(3)">More info</button></span>
-                </figure>
-            </div>
-            <div id="modal">
-                <div class="window" id="project1popup">
-                    <div class="windowtext">
-                        <h3>Project Flashcards</h3>
-                        <h4>Learning outcomes</h4>
-                        <p>Apart from getting a useful memory-aid application, you will learn the basics of HTML
-                            and CSS. You will see how these two technologies can help you build a simple web page
-                            with beautiful design.</p>
-                        <h4>About</h4>
-                        <p>If you are a beginner web developer, you need to know the basics of CSS and HTML. This
-                            project is great for those who need somewhere to start. Your goal is to create a
-                            stylized page with flashcards, each containing a question on one side and the answer
-                            on the other. You can choose any subject you want for your flashcards!</p>
-                        <button onclick="closeWindow(1)">Close</button>
-                    </div>
+        <div class="control-panel">
+            <div class="control-panel__inner">
+                <input id="password" type="password" placeholder="Enter password to unlock">
+                <input type="submit" onclick="password()" value="OK">
+                <div class="check-buttons">
+                    <input type="checkbox" disabled>
+                    <input type="checkbox" disabled>
+                    <input type="checkbox" disabled>
+                    <input type="checkbox" disabled>
+                    <input type="checkbox" disabled>
+                    <input type="checkbox" disabled>
                 </div>
-                <div class="window" id="project2popup">
-                    <div class="windowtext">
-                        <h3>Project Virtual Piano</h3>
-                        <h4>Learning outcomes</h4>
-                        <p>You will learn how to write HTML documents and work with the most popular CSS
-                            properties. You will also learn how to use JavaScript to make event handlers for
-                            browser events and create and insert new elements into documents.</p>
-                        <h4>About</h4>
-                        <p>One of the many things that a front-end developer has to take care of is binding the
-                            functionality of a web application to the keys on the keyboard. In order to develop
-                            and strengthen the important skills of working with keyboard keys, we will make a
-                            virtual piano in this project.</p>
-                        <button onclick="closeWindow(2)">Close</button>
-                    </div>
+                <div class="levers">
+                    <input type="range" disabled>
+                    <input type="range" disabled>
+                    <input type="range" disabled>
+                    <input type="range" disabled>
+                    <input type="range" disabled>
                 </div>
-                <div class="window" id="project3popup">
-                    <div class="windowtext">
-                        <h3>Project To-Do List</h3>
-                        <h4>Learning outcomes</h4>
-                        <p>To complete the project, learn the basics of HTML, CSS, and JavaScript. You will work
-                            with several Javascript functions, loops, and objects. Learn how you can store the
-                            data in local storage.</p>
-                        <h4>About</h4>
-                        <p>Have you ever had the feeling that you're missing something important? If so, to-do
-                            lists can be of help. A clear outline of your daily tasks will help you stay composed
-                            and mentally focused. In this project, you will create a simple to-do list that can
-                            manage your tasks.</p>
-                        <button onclick="closeWindow(3)">Close</button>
-                    </div>
-                </div>
+                <input type="button" onclick="launch()" value="Launch!" disabled>
             </div>
-        </section>
-        <section class="contacts">
-            <h2 id="contacts">Contact Information</h2>
-            <p>Phone: 0123-456789</p>
-            <p>E-mail: this_wont_work@example.com</p>
-        </section>
-    </main>
-    <footer>
-        <a href="https://github.com/StefanFB/CodeGorilla" target="_blank">
-            <img role="img" src="static/github.svg" alt="Github icon">
-        </a>
-        <p>Stefan &#169; 2023</p>
-    </footer>
-    <script src="functions.js"></script>
+        </div>
+    </div>
 </body>
 </html>
