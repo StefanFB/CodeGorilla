@@ -82,6 +82,20 @@ body {
     border-radius: 15px;
 }
 
+.control-panel__inner input[disabled] {
+    background-color: gray;
+    color: black;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+
+.control-panel__inner input[disabled]:hover {
+    background-color: gray;
+    color: black;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+
 .control-panel__inner .check-buttons {
     display: flex;
     justify-content: space-around;
