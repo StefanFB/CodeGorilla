@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.space {
+    background-image: url("static/space.png");
+    overflow: hidden;
+}
+
+.control-panel {
+    background-color: rgba(120,120,120,.6);
+    border-radius: 20px;
+    padding: 80px 20px 20px 20px;
+    width: 600px;
+    height: 300px;
+    position: absolute;
+    bottom: 100px;
+    right: 200px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.control-panel div {
+    margin: auto;
+    padding: 20px;
+    width: 90%;
+}
+
+.control-panel>input {
+    margin: 15px auto;
+    padding: 0 20px;
+    font-size: 1em;
+}
+
+.control-panel input[type="text"] {
+    position: absolute;
+    top: 25px;
+    left: 120px;
+    width: 250px;
+}
+
+.control-panel input[type="submit"] {
+    position: absolute;
+    top: 25px;
+    left: 420px;
+    width: 80px;
+}
+
+.control-panel .check-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.control-panel .levers {
+    display: flex;
+    justify-content: space-around;
+}
+
+.levers input[type="range"]{
+    transform: rotate(90deg);
+    width: 60px;
+}
+
+.planet {
+    position: relative;
+    top: 100px;
+    z-index: 1;
+}
+
+.rocket {
+    position: absolute;
+    top: 150px;
+    left: 330px;
+    transform: rotate(20deg)scale(.5);
+}
