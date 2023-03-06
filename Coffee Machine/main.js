@@ -1,10 +1,15 @@
 // You will need this in the following stages
 const input = require('sync-input')
 
-console.log("Starting to make a coffee");
-console.log("Grinding coffee beans");
-console.log("Boiling water");
-console.log("Mixing boiled water with crushed coffee beans");
-console.log("Pouring coffee into the cup");
-console.log("Pouring some milk into the cup");
-console.log("Coffee is ready!");
+// Declare an object to keep track of how much is needed for one cup of coffee
+const coffeeCup = {
+    water: 200,
+    milk: 50,
+    coffee: 15
+}
+
+let cups = input("Write how many cups of coffee you will need:\n");
+console.log(`For ${cups} cups of coffee you will need:
+${coffeeCup.water * cups} ml of water
+${coffeeCup.milk * cups} ml of milk
+${coffeeCup.coffee * cups} g of coffee beans`);
