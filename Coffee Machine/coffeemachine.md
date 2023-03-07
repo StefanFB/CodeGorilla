@@ -214,6 +214,12 @@ Write action (buy, fill, take, remaining, exit):
 
 I added:
 * Black coffee
-* Option for a large variant (although I didn´t add large cups, so there's that)
+   * easily added with the function constructor
+   * added route in main
+* Option for a large variant
+   * added large cups to the machine
+   * added logic for choosing M or L, checking that amount and removing that type of cup from the machine
+   * added a factor for enlarging the drink (e.g. 1.5)
+   * added large cups to the fill route
 
 ---
