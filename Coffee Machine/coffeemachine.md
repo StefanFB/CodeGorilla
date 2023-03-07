@@ -209,4 +209,11 @@ Write action (buy, fill, take, remaining, exit):
 ---
 
 ## Stage 6
-### 
+### Objective
+* This stage will not be tested. Try to be creative and add something new to your coffee machine. It can be a new type of coffee, different milk flavors, or different volumes of disposable cups.
+
+I added:
+* Black coffee
+* Option for a large variant (although I didn´t add large cups, so there's that)
+
+---
