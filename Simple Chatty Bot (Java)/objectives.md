@@ -15,7 +15,7 @@ Hello! My name is {botName}.
 I was created in {birthYear}.
 ```
 
-Instead of {botName}, print any name you choose and replace {birthYear} with the current year (four digits).
+Instead of `{botName}`, print any name you choose and replace `{birthYear}` with the current year `(four digits)`.
 
 ---
 
@@ -34,7 +34,7 @@ What a great name you have, {yourName}!
 ```
 
 You may change the name and the creation year of your bot if you want.
-Instead of {yourName}, the bot must print your name entered from the standard input.
+Instead of `{yourName}` , the bot must print your name entered from the standard input.
 
 ---
 
@@ -57,7 +57,14 @@ Your age is {yourAge}; that's a good time to start programming!
 
 Read three numbers from the standard input. Assume that all the numbers will be given on separate lines.
 
-Instead of {yourAge}, the bot will print the age determined according to the following special formula:
+Instead of `{yourAge}`, the bot will print the age determined according to the following special formula:
 `age = (remainder3 * 70 + remainder5 * 21 + remainder7 * 15) % 105`
+
+---
+
+## Stage 4
+### Objective
+
+In this stage, you will program the bot to count from 0 to any positive number users enter.
 
 ---
