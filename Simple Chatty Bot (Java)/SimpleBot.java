@@ -4,23 +4,33 @@ import java.util.Scanner;
 
 public class SimpleBot {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Hello! My name is Aid.");
         System.out.println("I was created in 2018.");
         System.out.println("Please, remind me your name.");
 
-        String name = scan.nextLine();
+        String name = scanner.nextLine();
 
         System.out.println("What a great name you have, " + name + "!");
         System.out.println("Let me guess your age.");
         System.out.println("Enter remainders of dividing your age by 3, 5 and 7.");
 
-        int remainder3 = scan.nextInt();
-        int remainder5 = scan.nextInt();
-        int remainder7 = scan.nextInt();
-        int age = (remainder3 * 70 + remainder5 * 21 + remainder7 * 15) % 105;
+        int rem3 = scanner.nextInt();
+        int rem5 = scanner.nextInt();
+        int rem7 = scanner.nextInt();
 
-        System.out.printf("Your age is %d; that's a good time to start programming!", age);
+        int age = (rem3 * 70 + rem5 * 21 + rem7 * 15) % 105;
+
+        System.out.println("Your age is " + age + "; that's a good time to start programming!");
+        System.out.println("Now I will prove to you that I can count to any number you want.");
+
+        int input = scanner.nextInt();
+
+        for (int i = 0; i <= input; i++) {
+            System.out.println(i + "!");
+        }
+
+        System.out.println("Completed, have a nice day!");
     }
 }
