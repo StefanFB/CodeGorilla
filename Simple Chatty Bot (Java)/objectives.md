@@ -66,5 +66,6 @@ Instead of `{yourAge}`, the bot will print the age determined according to the f
 ### Objective
 
 In this stage, you will program the bot to count from 0 to any positive number users enter.
+Note: each number starts with a new line, and after a number, the bot should print the exclamation mark.
 
 ---
