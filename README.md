@@ -32,3 +32,6 @@ The next 2 weeks we started with the basics of Java.
 
 ### 7 - Simple Chatty Bot (Java)
 This small program will ask for your name, calculate your age after asking some questions, count up to a number you have inputted and asks you a multiple choice question.
+
+### 8 Cinema Room Manager
+This program will handle the buying and selling of tickets for a cinema room. It will set up the room with rows and seats, and afterwards you can show the current status of the room, buy tickets and show some statistics.
