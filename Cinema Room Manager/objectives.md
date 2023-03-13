@@ -55,3 +55,35 @@ After that, the program should print out all the seats in the screen room as sho
 ---
 
 ## Stage 4
+### Objectives
+
+At the start, your program should read two positive integer numbers that represent the number of rows and seats in each row. Then, it should print a menu with the following three items:
+
+* `Show the seats` should print the current seating arrangement. The empty seats should be marked with an `S` symbol, and taken seats are marked with a `B` symbol.
+* `Buy a ticket` should read the seat coordinates from the input and print the ticket price like in the previous stage. After that, the chosen seat should be marked with a `B` when the item `Show the seats` is called.
+* `Exit` should stop the program.
+
+---
+
+## Stage 5
+### Objectives
+
+Now your menu should look like this:
+
+```
+1. Show the seats
+2. Buy a ticket
+3. Statistics
+0. Exit
+```
+
+When the item `Statistics` is chosen, your program should print the following information:
+
+* The number of purchased tickets;
+* The number of purchased tickets represented as a percentage. Percentages should be rounded to 2 decimal places;
+* Current income;
+* The total income that shows how much money the theatre will get if all the tickets are sold.
+
+The rest of the menu items should work the same way as before, except the item `Buy a ticket` shouldn't allow a user to buy a ticket that has already been purchased.
+
+If a user chooses an already taken seat, print `That ticket has already been purchased!` and ask them to enter different seat coordinates until they pick an available seat. Of course, you shouldn't allow coordinates that are out of bounds. If this happens, print `Wrong input!` and ask to enter different seat coordinates until the user picks an available seat.
