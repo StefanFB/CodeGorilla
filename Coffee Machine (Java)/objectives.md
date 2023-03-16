@@ -73,4 +73,8 @@ And the last improvement to the program at this step — if the user types `"buy
 ---
 
 ## Stage 6
-### 
+### Objective
+
+Your final task is to refactor the program. Make it so that you can communicate with the coffee machine through a single method.
+
+---
