@@ -6,6 +6,7 @@ public class Coffee {
     int milk;
     int coffee;
     int price;
+    
     Coffee(String name, int water, int milk, int coffee, int price){
         this.name = name;
         this.water = water;
