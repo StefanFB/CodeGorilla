@@ -1,5 +1,6 @@
 package machine;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -13,18 +14,26 @@ public class CoffeeMachine {
                 "%d disposable cups\n" +
                 "$%d of money\n",
                 coffeeMachine.water, coffeeMachine.milk, coffeeMachine.coffee, coffeeMachine.cups, coffeeMachine.money);
+        showMenu(coffeeMachine);
     }
 
     static void showMenu(Machine coffeemachine) {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("\nPlease state your action (buy, fill, take):");
+        System.out.println("\nPlease write your action (buy, fill, take, remaining, exit):");
         String action = scan.nextLine();
         switch (action) {
             case "buy" -> buyCoffee(coffeemachine);
             case "fill" -> fillMachine(coffeemachine);
             case "take" -> takeMoney(coffeemachine);
-            default -> System.out.println("unknown command, exiting program");
+            case "remaining" -> machineStatus(coffeemachine);
+            case "exit" -> {
+                return;
+            }
+            default -> {
+                System.out.println("unknown command, restarting program");
+                showMenu(coffeemachine);
+            }
         }
     }
 
@@ -32,7 +41,13 @@ public class CoffeeMachine {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("What do you want to buy? (1 - espresso, 2 - latte, 3 - cappuccino");
-        int choice = scan.nextInt();
+        int choice = 0;
+        try {
+            choice = scan.nextInt();
+        } catch (Exception e) {
+            // System.out.println("Returning to menu");
+            // showMenu(coffeemachine);
+        }
         switch (choice) {
             case 1 -> {
                 makeCoffee(coffeemachine, "espresso");
@@ -44,8 +59,29 @@ public class CoffeeMachine {
                 makeCoffee(coffeemachine, "cappuccino");
             }
             default -> {
-                System.out.println("Unknown coffee-type, exiting...");
+                System.out.println("Returning to menu");
+                showMenu(coffeemachine);
             }
+        }
+    }
+
+    static boolean enoughIngredients(Machine coffeemachine, Coffee coffeetype) {
+        // Check all available ingredients
+        if (coffeemachine.water < coffeetype.water) {
+            System.out.println("Sorry, not enough water!");
+            return false;
+        } else if (coffeemachine.milk < coffeetype.milk) {
+            System.out.println("Sorry, not enough milk!");
+            return false;
+        } else if (coffeemachine.coffee < coffeetype.coffee) {
+            System.out.println("Sorry, not enough coffee!");
+            return false;
+        } else if (coffeemachine.cups <= 0) {
+            System.out.println("Sorry, not enough cups!");
+            return false;
+        } else {
+            System.out.printf("I have enough resources, making you a %s!\n", coffeetype.name);
+            return true;
         }
     }
 
@@ -67,7 +103,7 @@ public class CoffeeMachine {
         coffeemachine.milk += addMilk;
         coffeemachine.coffee += addCoffee;
         coffeemachine.cups += addCups;
-        machineStatus(coffeemachine);
+        showMenu(coffeemachine);
     }
 
     static void makeCoffee(Machine coffeemachine, String coffeeType) {
@@ -80,31 +116,38 @@ public class CoffeeMachine {
         // Choose correct coffee, subtract the necessary ingredients, show new machine status
         switch (coffeeType) {
             case "espresso" -> {
-                coffeemachine.water -= espresso.water;
-                coffeemachine.milk -= espresso.milk;
-                coffeemachine.coffee -= espresso.coffee;
-                coffeemachine.cups--;
-                coffeemachine.money += espresso.price;
+                if (enoughIngredients(coffeemachine, espresso)) {
+                    coffeemachine.water -= espresso.water;
+                    coffeemachine.milk -= espresso.milk;
+                    coffeemachine.coffee -= espresso.coffee;
+                    coffeemachine.cups--;
+                    coffeemachine.money += espresso.price;
+                }
             }
             case "latte" -> {
-                coffeemachine.water -= latte.water;
-                coffeemachine.milk -= latte.milk;
-                coffeemachine.coffee -= latte.coffee;
-                coffeemachine.cups--;
-                coffeemachine.money += latte.price;
+                if (enoughIngredients(coffeemachine, latte)){
+                    coffeemachine.water -= latte.water;
+                    coffeemachine.milk -= latte.milk;
+                    coffeemachine.coffee -= latte.coffee;
+                    coffeemachine.cups--;
+                    coffeemachine.money += latte.price;
+                }
             }
             case "cappuccino" -> {
-                coffeemachine.water -= cappuccino.water;
-                coffeemachine.milk -= cappuccino.milk;
-                coffeemachine.coffee -= cappuccino.coffee;
-                coffeemachine.cups--;
-                coffeemachine.money += cappuccino.price;
+                if (enoughIngredients(coffeemachine, cappuccino)){
+                    coffeemachine.water -= cappuccino.water;
+                    coffeemachine.milk -= cappuccino.milk;
+                    coffeemachine.coffee -= cappuccino.coffee;
+                    coffeemachine.cups--;
+                    coffeemachine.money += cappuccino.price;
+                }
             }
             default -> {
-                System.out.println("Unknown coffee-type, exiting...");
+                System.out.println("Unknown coffee-type, returning to menu ...");
+                showMenu(coffeemachine);
             }
         }
-        machineStatus(coffeemachine);
+        showMenu(coffeemachine);
     }
 
     static void takeMoney(Machine coffeemachine) {
@@ -113,19 +156,16 @@ public class CoffeeMachine {
         // Inform user about how much money was taken from the machine
         System.out.printf("I gave you $%d\n", coffeemachine.money);
 
-        // Update and show new status of machine
+        // Update status of machine and return to menu
         coffeemachine.money = 0;
-        machineStatus(coffeemachine);
+        showMenu(coffeemachine);
     }
 
     public static void main(String[] args) {
         // Create our machine with pre-defined amounts of water, milk, coffee, etc.
         Machine coffeeMachine = new Machine();
 
-        // Print coffee machine's state
-        machineStatus(coffeeMachine);
-
-        // Show menu
+        // Show menu. Each following action will return to the menu
         showMenu(coffeeMachine);
     }
 }
