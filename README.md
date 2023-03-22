@@ -35,3 +35,7 @@ This small program will ask for your name, calculate your age after asking some 
 
 ### 8 Cinema Room Manager
 This program will handle the buying and selling of tickets for a cinema room. It will set up the room with rows and seats, and afterwards you can show the current status of the room, buy tickets and show some statistics.
+
+### 9 Coffee Machine (Java)
+
+### 10 Battleship
