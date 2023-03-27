@@ -48,12 +48,12 @@ public class Game {
         }
     }
 
-    public void showMap() {
+    public void showFullMap() {
         for (int i = 0; i <= yAxis; i++) {
             for (int j = 0; j <= xAxis; j++) {
                 // Top-left corner should be empty
                 if (i == 0 && j == 0) {
-                    System.out.print("  ");
+                    System.out.print("\n  ");
                 }
                 // First row should be the column numbers
                 else if (i == 0) {
@@ -85,17 +85,50 @@ public class Game {
         System.out.print("\n");
     }
 
+    public void showMap() {
+        for (int i = 0; i <= yAxis; i++) {
+            for (int j = 0; j <= xAxis; j++) {
+                // Top-left corner should be empty
+                if (i == 0 && j == 0) {
+                    System.out.print("\n  ");
+                }
+                // First row should be the column numbers
+                else if (i == 0) {
+                    System.out.printf("%d ", j);
+                }
+                // First column should be the row letters
+                else if (j == 0) {
+                    System.out.printf("%c ", (char) i + 64);
+                }
+                // If a coordinate has been shot and missed ('M'), print M
+                else if (field2D[i][j] == 'M') {
+                    System.out.print("M ");
+                }
+                // If a coordinate has been shot and hit a ship ('X'), print X
+                else if (field2D[i][j] == 'X') {
+                    System.out.print("X ");
+                }
+                // All other coordinates should be sea, so print a wave ~
+                else {
+                    System.out.print("~ ");
+                }
+            }
+            System.out.print("\n");
+        }
+        System.out.print("\n");
+    }
+
     public void handleFiring() {
         // Ask user to take a shot
-        System.out.println("Take a shot!\n\n");
+        System.out.println("Take a shot!\n");
         ShotCoordinates shot = readShot();
 
         // Check given coordinate, retry when incorrect
         int correctShot = isCorrectInput(shot);
         while (correctShot != 0) {
             switch (correctShot) {
-                case 1 -> System.out.println("Error! Invalid input. Try again:\n\n");
-                case 2 -> System.out.println("Error! Invalid coordinates. Try again:\n\n");
+                case 1 -> System.out.println("\nError! Invalid input. Try again:\n");
+                case 2 -> System.out.println("\nError! Invalid coordinates. Try again:\n");
             }
             shot = readShot();
             correctShot = isCorrectInput(shot);
