@@ -33,3 +33,10 @@ In this stage, you need to implement the "fog of war" feature in your game. Firs
 
 ---
 
+## Stage 4
+### Objectives
+To complete this step, you should add a check that all the ships were successfully sunk. The game is supposed to go on until all ships go down. The program should print an extra message `You sank a ship!` when all the cells of a particular ship have been hit. Take a look at the examples below!
+
+> For the sake of simplicity; the project does not consider shots to coordinates that are already shot at to be any different. Regardless of whether the coordinate was previously a hit or a miss, you should display You hit a ship! and You missed! again respectively.
+
+---
