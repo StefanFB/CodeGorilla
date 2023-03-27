@@ -25,3 +25,11 @@ Take a shot at a prepared game field. You need to indicate the coordinates of th
 If the player managed to hit a ship, the game should display a message `You hit a ship!`; otherwise, the message is `You missed!`
 
 ---
+
+## Stage 3
+### Objectives
+
+In this stage, you need to implement the "fog of war" feature in your game. First, place all the ships on the game field, and then hide them with the symbol `~`. Take a shot like in the previous stage, and after your attempt, the program should print a message along with two versions of the field: one covered with the fog of war and the other one uncovered.
+
+---
+
