@@ -46,5 +46,5 @@ A terminal version of the famous battleship board game. This project is not yet 
 
 ## Java Advanced
 
-### 8 - Connect Four
+### 11 - Connect Four
 This game will feature a GUI using the Java Swing library, a complicated algorithm to check the game board for a winning condition and highlight the winning move.
