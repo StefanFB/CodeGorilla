@@ -37,5 +37,14 @@ This small program will ask for your name, calculate your age after asking some 
 This program will handle the buying and selling of tickets for a cinema room. It will set up the room with rows and seats, and afterwards you can show the current status of the room, buy tickets and show some statistics.
 
 ### 9 Coffee Machine (Java)
+This program is similar to the JavaScript version (project 6), but the last assignment required to build the machine using enums. The input is processed according to the state of the machine.
 
 ### 10 Battleship
+A terminal version of the famous battleship board game. This project is not yet finished, because we had to switch to the next track. I am planning to finish this project later.
+
+---
+
+## Java Advanced
+
+### 8 - Connect Four
+This game will feature a GUI using the Java Swing library, a complicated algorithm to check the game board for a winning condition and highlight the winning move.
