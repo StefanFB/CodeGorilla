@@ -29,3 +29,13 @@ In this stage, your program should:
 * When a player clicks on a cell, change that cell's label to either `X` or `O` depending on the turn, starting with `X`.
 
 ---
+
+## Stage 3
+### Objectives
+
+In this stage your program should:
+
+* Fill the cells according to the rule above — not by the position of the click but by the column that was clicked on;
+* Continue to alternate between the `X` and `O` pieces after each click.
+
+---
