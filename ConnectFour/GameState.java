@@ -1,5 +1,5 @@
 package four;
 
-public enum GameState {
+enum GameState {
     PLAYER_1, PLAYER_2
 }
