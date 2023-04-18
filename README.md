@@ -47,4 +47,8 @@ A terminal version of the famous battleship board game. This project is not yet 
 ## Java Advanced
 
 ### 11 - Connect Four
-This game will feature a GUI using the Java Swing library, a complicated algorithm to check the game board for a winning condition and highlight the winning move.
+Learn about multidimensional arrays, a variety of loops, and how to utilize Java Swing library to create a user interface. Write a complicated algorithm to check the game board for a winning condition after each turn and highlight the winning move.
+
+### 12 - Tic-Tac-Toe with AI (Java)
+After finishing this project, you'll get to know a lot about planning and developing a complex program from scratch, using classes and methods, handling errors, and processing user input. You will also learn to use OOP (Object-Oriented Programming) in the process.
+
