@@ -4,8 +4,14 @@ public class TicTacToe {
     int[][] Board = new int[3][3];
     GameState state = GameState.SETUP;
 
-    // Read board state from String[]
-    public void readSetup(String[] setup) {
+    /* Function boardSetup
+    * with parameter String[]: set up a certain pre-filled board
+    * it accepts single-char strings, but only "X", "O" or "_"
+    * Indices 0-2: first row; 3-5: second row; 6-8: third row
+    *
+    * without parameters: create an empty board
+     */
+    public void boardSetup(String[] setup) {
         int n = 0;      // index to reach into String[] setup
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -28,6 +34,16 @@ public class TicTacToe {
 
         // Change GameState to Playing. Determine whose turn it is via function
         determineTurn();
+    }
+
+    public void boardSetup() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                    Board[i][j] = 0;
+            }
+        }
+        // Start the game
+        state = GameState.PLAYER1;
     }
 
     // Show board in terminal
@@ -88,10 +104,31 @@ public class TicTacToe {
         }
     }
 
+    // Read users input, check for valid coordinates
+    public int checkInput(int[] move) {
+        int row = move[0];
+        int col = move[1];
+
+        // Check for occupied field, else do the move
+        if (Board[row][col] != 0) {
+            return 1;
+        } else {
+            doMove(row, col);
+            return 0;
+        }
+    }
+
+    // Make the move, then switch turns
     private void doMove(int row, int col) {
         switch (state) {
-            case PLAYER1 -> Board[row][col] = 1;
-            case PLAYER2 -> Board[row][col] = 2;
+            case PLAYER1 -> {
+                Board[row][col] = 1;
+                state = GameState.PLAYER2;
+            }
+            case PLAYER2 -> {
+                Board[row][col] = 2;
+                state = GameState.PLAYER1;
+            }
         }
     }
 
@@ -139,8 +176,9 @@ public class TicTacToe {
         }
 
         // If the game has not yet been won, check for empty spaces. None indicates a draw
-        int emptySpaces = 0;
-        if (state != GameState.X_WINS || state != GameState.O_WINS) {
+        if (state != GameState.X_WINS && state != GameState.O_WINS) {
+            int emptySpaces = 0;
+
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
                     if (Board[i][j] == 0) {
@@ -148,12 +186,14 @@ public class TicTacToe {
                     }
                 }
             }
+
+            if (emptySpaces == 0) state = GameState.DRAW;
         }
 
-        if (emptySpaces == 0) state = GameState.DRAW;
-
-        // Display current GameState
-        displayGameState();
+        // Display GameState only if the game is done
+        if (state != GameState.PLAYER1 && state != GameState.PLAYER2) {
+            displayGameState();
+        }
     }
 
     private void displayGameState() {
@@ -164,5 +204,4 @@ public class TicTacToe {
             case O_WINS -> System.out.println("O wins");
         }
     }
-  
 }
