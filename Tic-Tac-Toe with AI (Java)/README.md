@@ -34,3 +34,13 @@ If the user provides invalid coordinates, the program should repeat the request 
 
 ---
 
+## Stage 2
+### Objectives
+In this stage, you should implement the following:
+
+* Display an empty table when the program starts.
+* The user plays first as `X`, and the program should ask the user to enter cell coordinates.
+* Next, the computer makes its move as `O`, and the players then move in turn until someone wins or the game results in a draw.
+* Print the final outcome at the very end of the game.
+
+---
