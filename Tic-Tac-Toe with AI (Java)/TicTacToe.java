@@ -3,46 +3,58 @@ package tictactoe;
 public class TicTacToe {
     int[][] Board = new int[3][3];
     GameState state = GameState.SETUP;
+    Player playerX;
+    Player playerO;
 
-    /* Function boardSetup
-    * with parameter String[]: set up a certain pre-filled board
-    * it accepts single-char strings, but only "X", "O" or "_"
-    * Indices 0-2: first row; 3-5: second row; 6-8: third row
-    *
-    * without parameters: create an empty board
-     */
-    public void boardSetup(String[] setup) {
-        int n = 0;      // index to reach into String[] setup
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                switch (setup[n]) {
-                    case "_" -> {
-                        Board[i][j] = 0;
-                        n++;
-                    }
-                    case "X" -> {
-                        Board[i][j] = 1;
-                        n++;
-                    }
-                    case "O" -> {
-                        Board[i][j] = 2;
-                        n++;
-                    }
-                }
-            }
+    public int checkCommandUsage(String[] input) {
+        // Create strings to store the input in
+        String command = "";
+        String player1 = "";
+        String player2 = "";
+
+        // Try to read the String-array into the strings
+        try {
+            command = input[0];
+        } catch (Exception e) {
+            System.out.println("Bad parameters!");
+            return 1;
         }
 
-        // Change GameState to Playing. Determine whose turn it is via function
-        determineTurn();
+        if (command.equals("exit")) {
+            return 0;
+        }
+
+        try {
+            player1 = input[1];
+            player2 = input[2];
+        } catch (Exception e) {
+            System.out.println("Bad parameters!");
+            return 5;
+        }
+
+        // Check for 'start' or 'end' command
+        if (!command.equals("start")) {
+            System.out.println("Bad parameters!");
+            return 2;
+        } else if (!player1.equals("user") && !player1.equals("easy")) {
+            System.out.println("Bad parameters!");
+            return 3;
+        } else if (!player2.equals("user") && !player2.equals("easy")) {
+            System.out.println("Bad parameters!");
+            return 4;
+        } else {
+            return 0;
+        }
     }
 
+    // Set up empty board
     public void boardSetup() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                     Board[i][j] = 0;
             }
         }
-        // Start the game
+        // Start the game with player1
         state = GameState.PLAYER1;
     }
 
@@ -130,26 +142,6 @@ public class TicTacToe {
                 state = GameState.PLAYER1;
             }
         }
-    }
-
-    private void determineTurn() {
-        int player1 = 0;
-        int player2 = 0;
-
-        // Count how many moves each player has made
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                switch (Board[i][j]) {
-                    case 1 -> player1++;
-                    case 2 -> player2++;
-                }
-            }
-        }
-
-        // Set GameState to the correct player
-        if (player1 <= player2) {
-            state = GameState.PLAYER1;
-        } else state = GameState.PLAYER2;
     }
 
     // Check for winning condition
