@@ -70,3 +70,18 @@ When the AI is playing at `medium` difficulty level, it makes moves using the fo
 You should add a `medium` parameter so that you can play against this level. It should also be possible to make AIs using `easy` and `medium` levels play against each other!
 
 ---
+
+## Stage 5 (final)
+### Objectives
+In this last stage, you need to implement the `hard` difficulty level using the minimax algorithm. As a recursive algorithm, it can be tricky to think about, so you should try to look at different resources to find the one that works best for your understanding (which is an important skill to get good at as you progress in you software development career!). Consider the following as starting points:
+
+* Video-based explanations:
+   * ["Tic Tac Toe AI with Minimax Algorithm"](https://www.youtube.com/watch?v=trKjYdBASyQ) by The Coding Train
+   * ["Algorithms Explained – minimax and alpha-beta pruning"](https://www.youtube.com/watch?v=l-hh51ncgDI) by Sebastian Lague
+   * ["Mega-R3. Games, Minimax, Alpha-Beta"](https://www.youtube.com/watch?v=hM2EAvMkhtk) from MIT OpenCourseWare
+* Text-based explanations:
+   * ["How to make your Tic Tac Toe game unbeatable by using the minimax algorithm"](https://www.freecodecamp.org/news/how-to-make-your-tic-tac-toe-game-unbeatable-by-using-the-minimax-algorithm-9d690bad4b37/) on freeCodeCamp.org
+   * ["Case Study on Tic-Tac-Toe Part 2: With AI"](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaGame_TicTacToe_AI.html) from Nanyang Technological University
+   * ["Tic Tac Toe - Creating Unbeatable AI"](https://gsurma.medium.com/tic-tac-toe-creating-unbeatable-ai-with-minimax-algorithm-8af9e52c1e7d#:~:text=Minimax%20is%20a%20recursive%20algorithm,minimize%20the%20worst%20case%20scenario\).) on Medium
+
+You should also add a `hard` parameter so that it's possible to play against this level.
