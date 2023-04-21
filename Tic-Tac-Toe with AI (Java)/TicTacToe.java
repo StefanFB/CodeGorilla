@@ -3,8 +3,8 @@ package tictactoe;
 public class TicTacToe {
     int[][] Board = new int[3][3];
     GameState state = GameState.SETUP;
-    Player playerX;
-    Player playerO;
+    player playerX;
+    player playerO;
 
     public int checkCommandUsage(String[] input) {
         // Create strings to store the input in
@@ -12,7 +12,7 @@ public class TicTacToe {
         String player1 = "";
         String player2 = "";
 
-        // Try to read the String-array into the strings
+        // Try to read the first word inputted
         try {
             command = input[0];
         } catch (Exception e) {
@@ -20,10 +20,12 @@ public class TicTacToe {
             return 1;
         }
 
+        // If the first word is "exit", stop reading and return to main
         if (command.equals("exit")) {
             return 0;
         }
 
+        // Try to read the next two words
         try {
             player1 = input[1];
             player2 = input[2];
@@ -32,14 +34,24 @@ public class TicTacToe {
             return 5;
         }
 
-        // Check for 'start' or 'end' command
+        // Check for correct command usage via String-array
+        String[] possibleUsers = new String[] {"user", "easy", "medium", "hard"};
+        boolean wrongInput1 = true;
+        boolean wrongInput2 = true;
+
+        // Using for-loop check if the commands are used properly
+        for (String s : possibleUsers) {
+            if (player1.equals(s)) wrongInput1 = false;
+            if (player2.equals(s)) wrongInput2 = false;
+        }
+
         if (!command.equals("start")) {
             System.out.println("Bad parameters!");
             return 2;
-        } else if (!player1.equals("user") && !player1.equals("easy")) {
+        } else if (wrongInput1) {
             System.out.println("Bad parameters!");
             return 3;
-        } else if (!player2.equals("user") && !player2.equals("easy")) {
+        } else if (wrongInput2) {
             System.out.println("Bad parameters!");
             return 4;
         } else {
@@ -82,67 +94,7 @@ public class TicTacToe {
         System.out.println("---------");
     }
 
-    // Read users input, check for valid coordinates
-    public int checkInput(String[] input) {
-        int row;
-        int col;
 
-        // Handle non-integer input
-        try {
-            row = Integer.parseInt(input[0]);
-            col = Integer.parseInt(input[1]);
-        } catch (Exception e){
-            System.out.println("You should enter numbers!");
-            return 1;
-        }
-
-        // Lower each coordinate by 1, because the array starts at 0
-        row--;
-        col--;
-
-        // Check for existing coordinates
-        if (row < 0 || row > 2 || col < 0 || col > 2) {
-            System.out.println("Coordinates should be from 1 to 3!");
-            return 2;
-        }
-
-        // Check for occupied field, else do the move
-        if (Board[row][col] != 0) {
-            System.out.println("This cell is occupied! Choose another one!");
-            return 3;
-        } else {
-            doMove(row, col);
-            return 0;
-        }
-    }
-
-    // Read users input, check for valid coordinates
-    public int checkInput(int[] move) {
-        int row = move[0];
-        int col = move[1];
-
-        // Check for occupied field, else do the move
-        if (Board[row][col] != 0) {
-            return 1;
-        } else {
-            doMove(row, col);
-            return 0;
-        }
-    }
-
-    // Make the move, then switch turns
-    private void doMove(int row, int col) {
-        switch (state) {
-            case PLAYER1 -> {
-                Board[row][col] = 1;
-                state = GameState.PLAYER2;
-            }
-            case PLAYER2 -> {
-                Board[row][col] = 2;
-                state = GameState.PLAYER1;
-            }
-        }
-    }
 
     // Check for winning condition
     public void updateGameState() {
