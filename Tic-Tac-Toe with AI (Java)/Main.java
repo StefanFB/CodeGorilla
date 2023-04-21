@@ -14,11 +14,12 @@ public class Main {
             int commandCheck = -1;
             String[] startCommand = new String[5];
             while (commandCheck != 0) {
-                System.out.print("Input command (start [player1] [player2] / exit): ");
+                System.out.print("Input command (\"start <player1> <player2>\" or \"exit\"): ");
                 startCommand = scan.nextLine().split(" ");
                 commandCheck = game.checkCommandUsage(startCommand);
             }
 
+            // Stop the game when the GameState is set to END via the exit-command
             if (startCommand[0].equals("exit")) {
                 game.state = GameState.END;
                 break;
@@ -27,21 +28,27 @@ public class Main {
             System.out.println("Player1: " + startCommand[1]);
             System.out.println("Player2: " + startCommand[2]);
 
-            // Create player1 as human or ai player
-            if (startCommand[1].equals("user")) {
-                game.playerX = Player.HUMAN;
-            } else if (startCommand[1].equals("easy")) {
-                game.playerX = Player.EASY_AI;
+            // Create player1 as human or AI player
+            switch (startCommand[1]) {
+                case "user" -> game.playerX = player.HUMAN;
+                case "easy" -> game.playerX = player.EASY_AI;
+                case "medium" -> game.playerX = player.MEDIUM_AI;
+                case "hard" -> game.playerX = player.HARD_AI;
             }
 
-            // Create player2 as human or ai player
-            if (startCommand[2].equals("user")) {
-                game.playerO = Player.HUMAN;
-            } else if (startCommand[2].equals("easy")) {
-                game.playerO = Player.EASY_AI;
+            // Create player2 as human or AI player
+            switch (startCommand[2]) {
+                case "user" -> game.playerO = player.HUMAN;
+                case "easy" -> game.playerO = player.EASY_AI;
+                case "medium" -> game.playerO = player.MEDIUM_AI;
+                case "hard" -> game.playerO = player.HARD_AI;
             }
 
-            AI ai = new EasyAI();
+            // Create necessary instances of each player-type
+            PlayerType human = new HumanPlayerType();
+            PlayerType easyAI = new EasyAI();
+            PlayerType mediumAI = new MediumAI();
+            // Player hardAI = new HardAI();
 
             // Setup and show board
             game.boardSetup();
@@ -55,46 +62,16 @@ public class Main {
 
                 // Depending on the whose turn it is, make human or AI move
                 if (game.state == GameState.PLAYER1) {
-                    if (game.playerX == Player.HUMAN) {
-
-                        // Get human player move: get coordinates, keep asking until correct input
-                        int inputCheck = -1;
-                        while (inputCheck != 0) {
-                            System.out.print("Enter the coordinates: ");
-                            String[] input = scan.nextLine().split(" ");
-                            inputCheck = game.checkInput(input);
-                        }
-                    } else {
-
-                        // Let AI make a move
-                        String str = String.format("Making move level \"%s\"", ai.getName());
-                        System.out.println(str);
-                        int inputCheckAI = -1;
-                        while (inputCheckAI != 0) {
-                            int[] MoveAI = ai.makeMove();
-                            inputCheckAI = game.checkInput(MoveAI);
-                        }
+                    switch (game.playerX) {
+                        case HUMAN -> human.makeMove(game);
+                        case EASY_AI -> easyAI.makeMove(game);
+                        case MEDIUM_AI -> mediumAI.makeMove(game);
                     }
                 } else {
-                    if (game.playerO == Player.HUMAN) {
-
-                        // Get human player move: get coordinates, keep asking until correct input
-                        int inputCheck = -1;
-                        while (inputCheck != 0) {
-                            System.out.print("Enter the coordinates: ");
-                            String[] input = scan.nextLine().split(" ");
-                            inputCheck = game.checkInput(input);
-                        }
-                    } else {
-
-                        // Let AI make a move
-                        String str = String.format("Making move level \"%s\"", ai.getName());
-                        System.out.println(str);
-                        int inputCheckAI = -1;
-                        while (inputCheckAI != 0) {
-                            int[] MoveAI = ai.makeMove();
-                            inputCheckAI = game.checkInput(MoveAI);
-                        }
+                    switch (game.playerO) {
+                        case HUMAN -> human.makeMove(game);
+                        case EASY_AI -> easyAI.makeMove(game);
+                        case MEDIUM_AI -> mediumAI.makeMove(game);
                     }
                 }
 
