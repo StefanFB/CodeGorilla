@@ -2,7 +2,7 @@ package tictactoe;
 
 import java.util.Random;
 
-public class EasyAI implements AI {
+class EasyAI implements PlayerType {
 
     final String name = "easy";
 
@@ -12,14 +12,8 @@ public class EasyAI implements AI {
     }
 
     @Override
-    public int[] makeMove() {
-        Random random = new Random();
-
-        int[] move = new int[2];
-
-        move[0] = random.nextInt(3);
-        move[1] = random.nextInt(3);
-
-        return move;
+    public void makeMove(TicTacToe game) {
+        System.out.printf("Making move level \"%s\"\n", this.name);
+        makeRandomMove(game);
     }
 }
