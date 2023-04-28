@@ -2,7 +2,7 @@ package tictactoe;
 
 import java.util.Scanner;
 
-public class HumanPlayerType implements PlayerType {
+public class HumanPlayer implements PlayerType {
 
     final String name = "human";
 
@@ -23,7 +23,7 @@ public class HumanPlayerType implements PlayerType {
         }
     }
 
-    public int checkMove(TicTacToe game, String[] input) {
+    private int checkMove(TicTacToe game, String[] input) {
         int row;
         int col;
 
