@@ -3,10 +3,29 @@ package tictactoe;
 public class TicTacToe {
     int[][] Board = new int[3][3];
     GameState state = GameState.SETUP;
-    player playerX;
-    player playerO;
+    Player playerX;
+    Player playerO;
 
-    public int checkCommandUsage(String[] input) {
+    public TicTacToe() {
+        this.Board = new int[3][3];
+        GameState state = GameState.SETUP;
+        Player playerX;
+        Player playerO;
+
+        this.boardSetup();
+    }
+
+    public TicTacToe(String board_setup) {
+        this.Board = new int[3][3];
+        GameState state = GameState.SETUP;
+        Player playerX;
+        Player playerO;
+
+        this.readSetup(board_setup.split(""));
+        this.showBoard();
+    }
+
+    public int checkCommands(String[] input) {
         // Create strings to store the input in
         String command = "";
         String player1 = "";
@@ -90,11 +109,9 @@ public class TicTacToe {
             System.out.print("|\n");
         }
 
-        // Print ending line with 9 dashes
+        // Print last line with 9 dashes
         System.out.println("---------");
     }
-
-
 
     // Check for winning condition
     public void updateGameState() {
@@ -147,5 +164,109 @@ public class TicTacToe {
             case X_WINS -> System.out.println("X wins");
             case O_WINS -> System.out.println("O wins");
         }
+    }
+
+    public int getNumberOfEmptySpaces() {
+        int emptySpaces = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (Board[i][j] == 0) emptySpaces++;
+            }
+        }
+        return emptySpaces;
+    }
+
+    public Move[] getPossibleMoves() {
+        // Create Move-array with correct size
+        int size = getNumberOfEmptySpaces();
+        Move[] moves = new Move[size];
+        int index = 0;
+
+        // Fill the array with all empty places
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (Board[i][j] == 0) {
+                    Move move = new Move(i, j);
+                    moves[index] = move;
+                    index++;
+                }
+            }
+        }
+
+        return moves;
+    }
+
+    public void makeAMove(Move move) {
+        switch (state) {
+            case PLAYER1 -> {
+                Board[move.x][move.y] = 1;
+                state = GameState.PLAYER2;
+            }
+            case PLAYER2 -> {
+                Board[move.x][move.y] = 2;
+                state = GameState.PLAYER1;
+            }
+        }
+    }
+
+    // Read board state from String[]
+    public void readSetup(String[] setup) {
+        int n = 0;      // index to reach into String[] setup
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                switch (setup[n]) {
+                    case "_" -> {
+                        Board[i][j] = 0;
+                        n++;
+                    }
+                    case "X" -> {
+                        Board[i][j] = 1;
+                        n++;
+                    }
+                    case "O" -> {
+                        Board[i][j] = 2;
+                        n++;
+                    }
+                }
+            }
+        }
+
+        // Change GameState to Playing. Determine whose turn it is via function
+        determineTurn();
+    }
+
+    public void determineTurn() {
+        int player1 = 0;
+        int player2 = 0;
+
+        // Count how many moves each player has made
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                switch (Board[i][j]) {
+                    case 1 -> player1++;
+                    case 2 -> player2++;
+                }
+            }
+        }
+
+        // Set GameState to the correct player
+        if (player1 <= player2) {
+            state = GameState.PLAYER1;
+        } else state = GameState.PLAYER2;
+    }
+
+    public String[] exportCurrentGameBoard() {
+        StringBuilder SB_board_status = new StringBuilder();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                switch (Board[i][j]) {
+                    case 0 -> SB_board_status.append("_");
+                    case 1 -> SB_board_status.append("X");
+                    case 2 -> SB_board_status.append("O");
+                }
+            }
+        }
+        String str_board_status = SB_board_status.toString();
+        return str_board_status.split("");
     }
 }
