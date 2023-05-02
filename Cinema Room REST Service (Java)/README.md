@@ -1,5 +1,6 @@
 # Cinema Room REST Service (Java)
 
+```
    ____ _                              ____
   / ___(_)_ __   ___ _ __ ___   __ _  |  _ \ ___   ___  _ __ ___
  | |   | | '_ \ / _ \ '_ ` _ \ / _` | | |_) / _ \ / _ \| '_ ` _ \
@@ -7,6 +8,7 @@
   \____|_|_| |_|\___|_| |_| |_|\__,_| |_| \_\___/ \___/|_| |_| |_|
 
  :: Cinema Room REST Service ::
+```
 
 ##  Learning outcomes
 In this project, you will create a simple Spring REST service that will help you manage a small movie theatre. Handle HTTP requests in controllers, create services and respond with JSON objects.
