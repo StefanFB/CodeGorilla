@@ -26,4 +26,9 @@ public class Room {
         }
         return availableSeats;
     }
+
+    public Seat getSeat(int row, int column) {
+        int index = (row - 1) * columns + column -1;
+        return availableSeats.get(index);
+    }
 }
