@@ -89,4 +89,43 @@ Show the ticket price when the `/seats` endpoint is accessed. See the first exam
 ---
 
 ## Stage 3
-###
+### Objectives
+
+Change the JSON response when a customer purchases a ticket by making a `POST` request to the `/purchase` endpoint. Turn it into the following format:
+
+```json
+{
+    "token": "00ae15f2-1ab6-4a02-a01f-07810b42c0ee",
+    "ticket": {
+        "row": 1,
+        "column": 1,
+        "price": 10
+    }
+}
+```
+
+We recommend using the `randomUUID()` method of the `UUID` class to generate tokens. Take a look at this [UUID](https://www.baeldung.com/java-uuid) Guide by Baeldung if you're interested in more detail.
+
+Implement the `/return` endpoint, which will handle `POST` requests and allow customers to refund their tickets.
+
+The request should have the `token` feature that identifies the ticket in the request body. Once you have the token, you need to identify the ticket it relates to and mark it as available. The response body should be as follows:
+
+```json
+{
+    "returned_ticket": {
+        "row": 1,
+        "column": 1,
+        "price": 10
+    }
+}
+```
+
+The `returned_ticket` should contain the information about the returned ticket.
+
+If you cannot identify the ticket by the token, make your program respond with a `400` status code and the following response body:
+
+```json
+{
+    "error": "Wrong token!"
+}
+```
