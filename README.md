@@ -52,3 +52,5 @@ Learn about multidimensional arrays, a variety of loops, and how to utilize Java
 ### 12 - Tic-Tac-Toe with AI (Java)
 After finishing this project, you'll get to know a lot about planning and developing a complex program from scratch, using classes and methods, handling errors, and processing user input. You will also learn to use OOP (Object-Oriented Programming) in the process.
 
+### 13 - Cinema Room REST Service (Java)
+In this project, you will create a simple Spring REST service that will help you manage a small movie theatre. Handle HTTP requests in controllers, create services and respond with JSON objects.
