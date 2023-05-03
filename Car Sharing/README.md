@@ -7,3 +7,18 @@ Car-sharing is becoming a more and more popular green alternative to owning a ca
 
 ---
 
+## Stage 1
+### Objectives
+
+Create a single table named `COMPANY` with the following columns:
+
+- `ID` with the type `INT`;
+- `NAME` with the type `VARCHAR`.
+
+After running the program, it should create the database file in the `carsharing/db/` folder, initialize the table described above, and stop.
+
+The database file name is obtained from the command-line arguments. Here is an example of args: `-databaseFileName carsharing`. If the `-databaseFileName` argument is not given, then the database file name can be anything.
+
+> To pass the tests, you have to enable the auto-commit mode so that all changes are automatically saved in the database file. To do that, call the method `connection.setAutoCommit(true)` of the `Connection` object.
+
+---
