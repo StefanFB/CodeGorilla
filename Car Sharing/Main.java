@@ -13,10 +13,11 @@ public class Main {
     static final String JDBC_DRIVER = "org.h2.Driver";
     static final String DB_URL = "jdbc:h2:./src/carsharing/db/carsharing";
 
+
     // String arrays for menu options
     static String[] mainMenu = new String[]{
             "\n1. Log in as a manager",
-            // "2. Execute SQL command",
+            "2. Execute SQL command",
             "0. Exit"};
     static String[] managerMenu = new String[]{
             "\n1. Company list",
@@ -26,20 +27,26 @@ public class Main {
 
     static boolean isRunning = true;
     static boolean isLoggedIn = false;
+    static boolean companyChosen = false;
 
     public static void main(String[] args) {
 
-        Connection conn = null;
+        // Set databaseFileName or overwrite with arguments
+        String databaseFileName = "carsharing";
+        if (args.length > 0 && args[0].equals("-databaseFileName")) {
+            databaseFileName = args[1];
+        }
+
+        // Set up database and connection
+        Database carSharing = new Database(databaseFileName);
+        Connection conn = carSharing.getConnection();
+
+        // Create tables: company and car
+        carSharing.createCompanyTable(conn);
+        carSharing.createCarTable(conn);
+
         Statement stmt = null;
         try {
-            // Register JDBC driver
-            Class.forName(JDBC_DRIVER);
-
-            // Open a connection, enable auto-commit
-            System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL);
-            conn.setAutoCommit(true);
-
             //Execute query
             stmt = conn.createStatement();
             String sql =  "CREATE TABLE IF NOT EXISTS company (" +
@@ -52,31 +59,34 @@ public class Main {
                 showMainMenu();
                 while (isLoggedIn) {
                     showManagerMenu();
+                    while (companyChosen) {
+                        showCompanyMenu(conn);
+                    }
                 }
             }
 
             // Clean-up environment
-            stmt.close();
-            conn.close();
-        } catch(SQLException se) {
+            carSharing.closeConnection();
+        } catch(Exception se) {
             System.out.println(se.getMessage());
             se.printStackTrace();
-        } catch(Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        } finally {
-            //finally block used to close resources
-            try{
-                if(stmt!=null) stmt.close();
-            } catch(SQLException se2) {
-            } // nothing we can do
-            try {
-                if(conn!=null) conn.close();
-            } catch(SQLException se){
-                se.printStackTrace();
-            }
         }
     }
+
+    private static void showCompanyMenu(Connection conn) {
+        System.out.println("\nChoose the company:");
+        Companies.getAllCompanies();
+        System.out.println("0. Back");
+
+        Scanner scan = new Scanner(System.in);
+        int choice = scan.nextInt();
+        if (choice == 0) {
+            companyChosen = false;
+        } else {
+            Companies.selectCompany(conn, choice);
+        }
+    }
+
     private static void showMainMenu() {
         // Print the main menu streaming from the array
         Arrays.stream(mainMenu).forEach(System.out::println);
@@ -100,7 +110,9 @@ public class Main {
         int choice = scan.nextInt();
         switch (choice) {
             case 0 -> isLoggedIn = false;
-            case 1 -> Companies.getAllCompanies();
+
+            // Only if companies exist (i.e. when function return true) set flag and go into company menu
+            case 1 -> companyChosen = Companies.getAllCompanies();
             case 2 -> Companies.addCompany();
         }
     }
