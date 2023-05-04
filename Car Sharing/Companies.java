@@ -10,9 +10,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Companies {
-    List<Company> companyList = new ArrayList<>();
 
-    public static void getAllCompanies() {
+    public static boolean getAllCompanies() {
         Connection conn = null;
         Statement stmt = null;
         try {
@@ -41,6 +40,8 @@ public class Companies {
             // If no result, inform user
             if (count == 0) {
                 System.out.println("\nThe company list is empty!");
+                rs.close();
+                return false;
             }
 
             // Clean-up environment
@@ -63,6 +64,7 @@ public class Companies {
                 se.printStackTrace();
             }
         }
+        return true;
     }
 
     public static void addCompany() {
@@ -88,27 +90,58 @@ public class Companies {
             stmt.executeUpdate(sql);
             System.out.println("The company was created!");
 
-
-            // Clean-up environment
-            stmt.close();
             conn.close();
+
         } catch(SQLException se) {
             System.out.println(se.getMessage());
             se.printStackTrace();
         } catch(Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
-        } finally {
-            //finally block used to close resources
-            try{
-                if(stmt!=null) stmt.close();
-            } catch(SQLException se2) {
-            } // nothing we can do
-            try {
-                if(conn!=null) conn.close();
-            } catch(SQLException se){
-                se.printStackTrace();
+        }
+    }
+
+    public static void selectCompany(Connection conn, int ID) {
+        String companyName = null;
+        Statement stmt = null;
+        try {
+            //Execute query
+            stmt = conn.createStatement();
+            String sql =  String.format("SELECT id, name FROM company WHERE id = %d", ID);
+            ResultSet rs = stmt.executeQuery(sql);
+
+            int count = 0;
+            int id = 0;
+
+            while(rs.next()) {
+                // Retrieve by column name
+                id = rs.getInt("id");
+                companyName = rs.getString("name");
+
+                // Display values, update counter
+                // System.out.printf("%d. %s\n", id, companyName);
+                count++;
             }
+            // If no result, inform user
+            if (count == 0) {
+                System.out.println("\nThis company does not exist!");
+            }
+
+            // Show menu for this company
+            int option = -1;
+            while (option != 0) {
+                System.out.printf("\n'%s' company\n1. Car list\n2. Create a car\n0. Back\n> ", companyName);
+                Scanner scan = new Scanner(System.in);
+                option = scan.nextInt();
+                switch(option) {
+                    case 1 -> Cars.listAllCars(conn, ID);
+                    case 2 -> Cars.createCar(conn, ID);
+                    case 0 -> Main.companyChosen = false;
+                }
+            }
+        } catch(Exception se) {
+            System.out.println(se.getMessage());
+            se.printStackTrace();
         }
     }
 }
