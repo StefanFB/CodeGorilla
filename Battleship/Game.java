@@ -8,10 +8,12 @@ public class Game {
     char[][] field2D = new char[yAxis+1][xAxis+1];
     GameState state;
     Preparation prepPhase;
+    LastShot lastShot = LastShot.NONE;
 
     public Game() {
         this.state = GameState.PREPARATION;
         this.prepPhase = Preparation.PLACE_SHIP_1;
+        Ships.initShipList();
     }
 
     public void handlePlacement() {
@@ -118,9 +120,15 @@ public class Game {
         System.out.print("\n");
     }
 
-    public void handleFiring() {
-        // Ask user to take a shot
-        System.out.println("Take a shot!\n");
+    public int handleFiring() {
+        // Ask user to shoot, change phrasing according to previous action
+        switch (this.lastShot) {
+            case NONE -> System.out.println("Take a shot!\n");
+            case MISS -> System.out.println("You missed! Try again:\n");
+            case HIT -> System.out.println("You hit a ship! Try again:\n");
+            case SUNK_SHIP -> System.out.println("You sank a ship! Specify a new target:\n");
+        }
+
         ShotCoordinates shot = readShot();
 
         // Check given coordinate, retry when incorrect
@@ -135,14 +143,22 @@ public class Game {
         }
 
         // When correct, shoot! Notice whether it was a hit or not
-        boolean wasHit = fire(shot);
-        showMap();
-        if (!wasHit) {
-            System.out.println("You missed!");
-        } else {
-            System.out.println("You hit a ship!");
+        int typeOfShot = fire(shot);
+        // showMap();
+        switch (typeOfShot) {
+            case 0 -> this.lastShot = LastShot.MISS;
+            case 1 -> this.lastShot = LastShot.HIT;
+            case 2 -> System.out.println("You already hit this ship!");
+            case 3 -> System.out.println("You missed (again)!");
+            case 4 -> {
+                if (state == GameState.END) {
+                    System.out.println("You sank the last ship. ");
+                } else {
+                    this.lastShot = LastShot.SUNK_SHIP;
+                }
+            }
         }
-
+        return 0;
     }
 
     private ShipCoordinates readPlacement() {
@@ -337,6 +353,36 @@ public class Game {
         return shipSize;
     }
 
+    private void setShipStartCoordinateX(int n) {
+        switch (this.prepPhase) {
+            case PLACE_SHIP_1 -> Ship.carrier.shipStartX = n;
+            case PLACE_SHIP_2 -> Ship.battleship.shipStartX = n;
+            case PLACE_SHIP_3 -> Ship.submarine.shipStartX = n;
+            case PLACE_SHIP_4 -> Ship.cruiser.shipStartX = n;
+            case PLACE_SHIP_5 -> Ship.destroyer.shipStartX = n;
+        }
+    }
+
+    private void setShipStartCoordinateY(int n) {
+        switch (this.prepPhase) {
+            case PLACE_SHIP_1 -> Ship.carrier.shipStartY = n;
+            case PLACE_SHIP_2 -> Ship.battleship.shipStartY = n;
+            case PLACE_SHIP_3 -> Ship.submarine.shipStartY = n;
+            case PLACE_SHIP_4 -> Ship.cruiser.shipStartY = n;
+            case PLACE_SHIP_5 -> Ship.destroyer.shipStartY = n;
+        }
+    }
+
+    private void setShipHorizontal(boolean alignment) {
+        switch (this.prepPhase) {
+            case PLACE_SHIP_1 -> Ship.carrier.horizontal = alignment;
+            case PLACE_SHIP_2 -> Ship.battleship.horizontal = alignment;
+            case PLACE_SHIP_3 -> Ship.submarine.horizontal = alignment;
+            case PLACE_SHIP_4 -> Ship.cruiser.horizontal = alignment;
+            case PLACE_SHIP_5 -> Ship.destroyer.horizontal = alignment;
+        }
+    }
+
     private void placeShip(ShipCoordinates ship) {
         // Convert to coordinates
         int y1 = ship.y1 - 64;
@@ -354,13 +400,27 @@ public class Game {
             if (x1 > x2) {
                 x1 = x2;
             }
+            // Set ship properties (lowest coordinate and horizontal)
+            setShipStartCoordinateX(x1);
+            setShipStartCoordinateY(y1);
+            setShipHorizontal(true);
+
+            // Update game board with ship
             for (int i = 0; i < getShipSize(); i++) {
                 field2D[y1][x1] = 'O';
                 x1++;
             }
         } else if (x1 == x2) {
             // Make sure x2 is always bigger than x1
-            if (y1 > y2) y1 = y2;
+            if (y1 > y2) {
+                y1 = y2;
+            }
+            // Set ship properties (lowest  coordinate and vertical)
+            setShipStartCoordinateX(x1);
+            setShipStartCoordinateY(y1);
+            setShipHorizontal(false);
+
+            // Update game board with ship
             for (int i = 0; i < getShipSize(); i++) {
                 field2D[y1][x1] = 'O';
                 y1++;
@@ -368,18 +428,32 @@ public class Game {
         }
     }
 
-    private boolean fire(ShotCoordinates shot) {
+    private int fire(ShotCoordinates shot) {
         // Convert to 'real' coordinates
         int x = shot.x;
         int y = shot.y - 64;
 
-        // Check for a ship on this location, update game board and return true for hit, false for miss
-        if (field2D[y][x] == 'O') {
+        /*
+         * When "hit", check all ships (given their start-coordinates and horizontal/vertical)
+         * When destroyed, check for remaining ships
+         * No remaining ships? Set game.state to END.
+         * */
+
+        // Check for a ship on this location, update game board and return result information
+        if (field2D[y][x] == 'O' || field2D[y][x] == 'X') {
             field2D[y][x] = 'X';
-            return true;
+
+            // Check for a newly destroyed ship, then check for remaining ships
+            if (Ships.checkAllShips(this)) {
+                if (Ships.allShipsDestroyed()) {
+                    this.state = GameState.END;
+                }
+                return 4;                       // 4 indicates a ship was destroyed
+            }
+            else return 1;                      // 1 indicates a hit
         } else {
             field2D[y][x] = 'M';
-            return false;
+            return 0;                           // 0 indicates a miss
         }
     }
 }
