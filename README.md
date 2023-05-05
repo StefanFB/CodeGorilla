@@ -54,3 +54,6 @@ After finishing this project, you'll get to know a lot about planning and develo
 
 ### 13 - Cinema Room REST Service (Java)
 In this project, you will create a simple Spring REST service that will help you manage a small movie theatre. Handle HTTP requests in controllers, create services and respond with JSON objects.
+
+### 14 - Car Sharing
+During the project implementation, you will learn the basics of SQL and work with the H2 database. You will also learn about advanced Java features such as Collections.
