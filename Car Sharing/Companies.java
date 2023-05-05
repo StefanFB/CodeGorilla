@@ -11,7 +11,12 @@ import java.util.Scanner;
 
 public class Companies {
 
+    static List<Company> companyList = new ArrayList<>();
+
     public static boolean getAllCompanies() {
+        // Reset companyList, since we will read the list from the database
+        companyList.clear();
+
         Connection conn = null;
         Statement stmt = null;
         try {
@@ -34,7 +39,8 @@ public class Companies {
                 String name = rs.getString("name");
 
                 // Display values, update counter
-                System.out.printf("%d. %s\n", id, name);
+                Company company = new Company(id, name);
+                companyList.add(company);
                 count++;
             }
             // If no result, inform user
@@ -42,6 +48,11 @@ public class Companies {
                 System.out.println("\nThe company list is empty!");
                 rs.close();
                 return false;
+            } else {
+                System.out.println("\nChoose a company:");
+                for (int i = 0; i < companyList.size(); i++) {
+                    System.out.printf("%d. %s\n", i+1, companyList.get(i).name);
+                }
             }
 
             // Clean-up environment
