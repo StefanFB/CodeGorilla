@@ -64,6 +64,21 @@ public class Database {
         }
     }
 
+    public void createCustomerTable(Connection conn) {
+        try {
+            Statement stmt = conn.createStatement();
+            String sql =  "CREATE TABLE IF NOT EXISTS customer (" +
+                    "id INT PRIMARY KEY AUTO_INCREMENT," +
+                    "name VARCHAR(255) UNIQUE NOT NULL," +
+                    "rented_car_id INT DEFAULT NULL," +
+                    "FOREIGN KEY (rented_car_id) REFERENCES car(id) )";
+            stmt.executeUpdate(sql);
+        } catch(Exception se) {
+            System.out.println(se.getMessage());
+            se.printStackTrace();
+        }
+    }
+
     public void closeConnection() {
         try {
             if(connection!=null) {
