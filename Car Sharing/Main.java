@@ -17,7 +17,9 @@ public class Main {
     // String arrays for menu options
     static String[] mainMenu = new String[]{
             "\n1. Log in as a manager",
-            "2. Execute SQL command",
+            "2. Log in as a customer",
+            "3. Create a customer",
+            "4. Execute SQL command",
             "0. Exit"};
     static String[] managerMenu = new String[]{
             "\n1. Company list",
@@ -25,9 +27,19 @@ public class Main {
             "0. Back"
     };
 
+    static String[] customerMenu = new String[]{
+            "\n1. Rent a car",
+            "2. Return a rented car",
+            "3. My rented car",
+            "0. Back"
+    };
+
     static boolean isRunning = true;
-    static boolean isLoggedIn = false;
+    static boolean isLoggedInAsManager = false;
     static boolean companyChosen = false;
+    static boolean isLoggedInAsCustomer = false;
+
+    static int thisCustomerId = 0;
 
     public static void main(String[] args) {
 
@@ -44,24 +56,21 @@ public class Main {
         // Create tables: company and car
         carSharing.createCompanyTable(conn);
         carSharing.createCarTable(conn);
+        carSharing.createCustomerTable(conn);
 
         Statement stmt = null;
         try {
-            //Execute query
-            stmt = conn.createStatement();
-            String sql =  "CREATE TABLE IF NOT EXISTS company (" +
-                    "id INT PRIMARY KEY AUTO_INCREMENT," +
-                    "name VARCHAR(255) UNIQUE NOT NULL )";
-            stmt.executeUpdate(sql);
-
             // Let user choose option from main menu
             while (isRunning) {
-                showMainMenu();
-                while (isLoggedIn) {
+                showMainMenu(conn);
+                while (isLoggedInAsManager) {
                     showManagerMenu();
                     while (companyChosen) {
                         showCompanyMenu(conn);
                     }
+                }
+                while (isLoggedInAsCustomer) {
+                    showCustomerMenu(conn, thisCustomerId);
                 }
             }
 
@@ -70,6 +79,57 @@ public class Main {
         } catch(Exception se) {
             System.out.println(se.getMessage());
             se.printStackTrace();
+        }
+    }
+
+    private static void showMainMenu(Connection conn) {
+        // Print the main menu streaming from the array
+        Arrays.stream(mainMenu).forEach(System.out::println);
+        System.out.print("> ");
+
+        Scanner scan = new Scanner(System.in);
+        int choice = scan.nextInt();
+        switch (choice) {
+            // When isRunning = false, the program will terminate
+            case 0 -> isRunning = false;
+            // When isLoggedIn = true, the managerMenu will be called
+            case 1 -> isLoggedInAsManager = true;
+            // When no customers available, this returns false, then we return to main menu
+            case 2 -> {
+                if (Customers.listAllCustomers(conn)) {
+
+                    // When there are customers, we show them and await choice
+                    System.out.print("0. Back\n> ");
+                    int customerChoice = scan.nextInt();
+
+                    // When '0. Back' is chosen, auto-return to main menu
+                    if (customerChoice != 0) {
+
+                        // Set flag, update chosen user and let main thread handle customer menu
+                        isLoggedInAsCustomer = true;
+                        thisCustomerId = customerChoice;
+                    }
+                }
+            }
+            case 3 -> Customers.createCustomer(conn);
+            // Have debug options to directly execute SQL commands
+            case 4 -> executeSQLCommand();
+        }
+    }
+
+    private static void showManagerMenu() {
+        // Print the manager menu streaming from the array
+        Arrays.stream(managerMenu).forEach(System.out::println);
+        System.out.print("> ");
+
+        Scanner scan = new Scanner(System.in);
+        int choice = scan.nextInt();
+        switch (choice) {
+            case 0 -> isLoggedInAsManager = false;
+
+            // Only if companies exist (i.e. when function return true) set flag and go into company menu
+            case 1 -> companyChosen = Companies.getAllCompanies();
+            case 2 -> Companies.addCompany();
         }
     }
 
@@ -87,33 +147,21 @@ public class Main {
         }
     }
 
-    private static void showMainMenu() {
-        // Print the main menu streaming from the array
-        Arrays.stream(mainMenu).forEach(System.out::println);
-        System.out.print("> ");
-
-        Scanner scan = new Scanner(System.in);
-        int choice = scan.nextInt();
-        switch (choice) {
-            case 0 -> isRunning = false;
-            case 1 -> isLoggedIn = true;
-            case 2 -> executeSQLCommand();
-        }
-    }
-
-    private static void showManagerMenu() {
+    private static void showCustomerMenu(Connection conn, int customerID) {
         // Print the manager menu streaming from the array
-        Arrays.stream(managerMenu).forEach(System.out::println);
+        Arrays.stream(customerMenu).forEach(System.out::println);
         System.out.print("> ");
 
         Scanner scan = new Scanner(System.in);
         int choice = scan.nextInt();
         switch (choice) {
-            case 0 -> isLoggedIn = false;
+            // Remove flag for customer, so we return to main menu
+            case 0 -> isLoggedInAsCustomer = false;
 
             // Only if companies exist (i.e. when function return true) set flag and go into company menu
-            case 1 -> companyChosen = Companies.getAllCompanies();
-            case 2 -> Companies.addCompany();
+            case 1 -> Customers.rentACar(conn, customerID);
+            case 2 -> Customers.returnMyRentedCar(conn, customerID);
+            case 3 -> Customers.myRentedCar(conn, customerID);
         }
     }
 
