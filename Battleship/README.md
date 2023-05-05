@@ -40,3 +40,8 @@ To complete this step, you should add a check that all the ships were successful
 > For the sake of simplicity; the project does not consider shots to coordinates that are already shot at to be any different. Regardless of whether the coordinate was previously a hit or a miss, you should display You hit a ship! and You missed! again respectively.
 
 ---
+
+## Stage 5
+### Objectives
+
+To complete this stage and the entire project, add a PvP component to your game. Now the player will see not only the opponent's screen but their own as well. Place the opponent's screen at the top and your field at the bottom.
