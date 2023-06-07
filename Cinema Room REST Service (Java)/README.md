@@ -9,16 +9,14 @@
 
  :: Cinema Room REST Service ::
 ```
+Always wanted to have your private movie theater and screen only the movies you like? You can buy a fancy projector and set it up in a garage, but how can you sell tickets? Having a booth is old-fashioned, so let's create a special service for that! Make good use of Spring and write a REST service that can show the available seats, sell and refund tickets, and display the statistics of your venue. Pass me the popcorn, please!
 
 ##  Learning outcomes
 In this project, you will create a simple Spring REST service that will help you manage a small movie theatre. Handle HTTP requests in controllers, create services and respond with JSON objects.
 
-## About
-Always wanted to have your private movie theater and screen only the movies you like? You can buy a fancy projector and set it up in a garage, but how can you sell tickets? Having a booth is old-fashioned, so let's create a special service for that! Make good use of Spring and write a REST service that can show the available seats, sell and refund tickets, and display the statistics of your venue. Pass me the popcorn, please!
-
 ---
 
-## Stage 1
+## [Stage 1](https://hyperskill.org/projects/189/stages/945/implement)
 ### Objectives
 
 Implement the /seats endpoint that handles `GET` requests and returns the information about the movie theatre.
@@ -55,7 +53,7 @@ Note that the `available_seats` array contains 81 elements, as there are 81 seat
 
 ---
 
-## Stage 2
+## [Stage 2](https://hyperskill.org/projects/189/stages/946/implement)
 ### Objectives
 
 Implement the `/purchase` endpoint that handles `POST` requests and marks a booked ticket as purchased.
@@ -99,7 +97,7 @@ Show the ticket price when the `/seats` endpoint is accessed. See the first exam
 
 ---
 
-## Stage 3
+## [Stage 3](https://hyperskill.org/projects/189/stages/947/implement)
 ### Objectives
 
 Change the JSON response when a customer purchases a ticket by making a `POST` request to the `/purchase` endpoint. Turn it into the following format:
@@ -141,7 +139,7 @@ If you cannot identify the ticket by the token, make your program respond with a
 }
 ```
 
-## Stage 4
+## [Stage 4](https://hyperskill.org/projects/189/stages/948/implement)
 ### Objectives
 
 Implement the `/stats` endpoint that will handle `POST` requests with URL parameters. If the URL parameters contain a `password` key with a `super_secret` value, return the movie theatre statistics in the following format:
