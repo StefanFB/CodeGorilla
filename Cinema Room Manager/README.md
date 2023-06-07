@@ -1,9 +1,13 @@
 # Cinema Room Manager
-This is my second Java program.
+## Learning outcomes
+This project is a good opportunity to work with input and output in Java. You will deal with arrays and functions as well as loops and conditional statements.
+
+## About
+Cinema has been a part of the entertainment industry for a long time: a good movie is a way to escape reality and live through a variety of emotions. The best cinema experience you can get is probably in a cinema theatre. In this project, you will create an application that helps manage a cinema theatre: sell tickets, check available seats, see sales statistics, and more.
 
 ---
 
-## Stage 1
+## [Stage 1](https://hyperskill.org/projects/133/stages/709/implement)
 ### Objectives
 There is not a lot of space in our new cinema theatre, so you need to take into account the restrictions on the number of seats. Your friends said that the room would fit 7 rows of 8 seats. Your task is to help them visualize the seating arrangement by printing the scheme to the console.
 
@@ -23,7 +27,7 @@ Cinema:
 
 ---
 
-## Stage 2
+## [Stage 2](https://hyperskill.org/projects/133/stages/710/implement)
 ### In this stage, you need to read two positive integer numbers from the input: the number of rows and the number of seats in each row. The ticket price is determined by the following rules:
 
 * If the total number of seats in the screen room is not more than 60, then the price of each ticket is 10 dollars.
@@ -42,7 +46,7 @@ $200
 
 ---
 
-## Stage 3
+## [Stage 3](https://hyperskill.org/projects/133/stages/711/implement)
 ### Objectives
 
 Read two positive integer numbers that represent the number of rows and seats in each row and print the seating arrangement like in the first stage. Then, read two integer numbers from the input: a row number and a seat number in that row. These numbers represent the coordinates of the seat according to which the program should print the ticket price. The ticket price is determined by the same rules as the previous stage:
@@ -54,7 +58,7 @@ After that, the program should print out all the seats in the screen room as sho
 
 ---
 
-## Stage 4
+## [Stage 4](https://hyperskill.org/projects/133/stages/712/implement)
 ### Objectives
 
 At the start, your program should read two positive integer numbers that represent the number of rows and seats in each row. Then, it should print a menu with the following three items:
@@ -65,7 +69,7 @@ At the start, your program should read two positive integer numbers that represe
 
 ---
 
-## Stage 5
+## [Stage 5](https://hyperskill.org/projects/133/stages/713/implement)
 ### Objectives
 
 Now your menu should look like this:
