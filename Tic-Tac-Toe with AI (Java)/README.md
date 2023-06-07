@@ -1,13 +1,12 @@
 # Tic-Tac-Toe with AI (Java)
+Everybody remembers this paper-and-pencil game from childhood: Tic-Tac-Toe, also known as Noughts and crosses or Xs and Os. A single mistake usually costs you the game, but thankfully it is simple enough that most players discover the best strategy quickly. Let’s program Tic-Tac-Toe and get playing!
+
 ## Learning Outcomes
 After finishing this project, you'll get to know a lot about planning and developing a complex program from scratch, using classes and methods, handling errors, and processing user input. You will also learn to use OOP (Object-Oriented Programming) in the process.
 
-## About
-Everybody remembers this paper-and-pencil game from childhood: Tic-Tac-Toe, also known as Noughts and crosses or Xs and Os. A single mistake usually costs you the game, but thankfully it is simple enough that most players discover the best strategy quickly. Let’s program Tic-Tac-Toe and get playing!
-
 ---
 
-## Stage 1
+## [Stage 1](https://hyperskill.org/projects/81/stages/447/implement)
 ### Objectives
 
 The program should work in the following way:
@@ -34,7 +33,7 @@ If the user provides invalid coordinates, the program should repeat the request 
 
 ---
 
-## Stage 2
+## [Stage 2](https://hyperskill.org/projects/81/stages/448/implement)
 ### Objectives
 In this stage, you should implement the following:
 
@@ -45,7 +44,7 @@ In this stage, you should implement the following:
 
 ---
 
-## Stage 3
+## [Stage 3](https://hyperskill.org/projects/81/stages/449/implement)
 ### Objectives
 Your tasks for this stage are:
 
@@ -58,7 +57,7 @@ Don't forget to handle incorrect input! The message `Bad parameters!` should be 
 
 ---
 
-## Stage 4
+## [Stage 4](https://hyperskill.org/projects/81/stages/450/implement)
 ### Objectives
 
 When the AI is playing at `medium` difficulty level, it makes moves using the following logic:
@@ -71,7 +70,7 @@ You should add a `medium` parameter so that you can play against this level. It 
 
 ---
 
-## Stage 5 (final)
+## [Stage 5](https://hyperskill.org/projects/81/stages/451/implement)
 ### Objectives
 In this last stage, you need to implement the `hard` difficulty level using the minimax algorithm. As a recursive algorithm, it can be tricky to think about, so you should try to look at different resources to find the one that works best for your understanding (which is an important skill to get good at as you progress in you software development career!). Consider the following as starting points:
 
