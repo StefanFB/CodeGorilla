@@ -1,9 +1,13 @@
 # Simple Chatty Bot (Java)
-This is my first Java program.
+## Learning outcomes
+Get to know the basic syntax of Java and write a simple program using variables, conditions, loops, and methods.
+
+## About
+Here, at the beginning of your programmer’s path, creating a simple console chat bot will do wonders to guide you through the basics of coding. During this journey, you will also play some word and number games that you are going to implement on your own. Pack up and let’s hit the road, my friend!
 
 ---
 
-## Stage 1
+## [Stage 1](https://hyperskill.org/projects/113/stages/614/implement)
 ### Objective
 
 For the first stage, you will write a bot who displays a greeting, its name, and the date of its creation. First impressions count!
@@ -19,7 +23,7 @@ Instead of `{botName}`, print any name you choose and replace `{birthYear}` with
 
 ---
 
-## Stage 2
+## [Stage 2](https://hyperskill.org/projects/113/stages/615/implement)
 ### Objective
 
 In this stage, you will introduce yourself to the bot so that it can greet you by your name.
@@ -38,7 +42,7 @@ Instead of `{yourName}` , the bot must print your name entered from the standard
 
 ---
 
-## Stage 3
+## [Stage 3](https://hyperskill.org/projects/113/stages/616/implement)
 ### Objective
 
 In this stage, you will introduce yourself to the bot. It will greet you by your name and then try to guess your age using arithmetic operations.
@@ -62,7 +66,7 @@ Instead of `{yourAge}`, the bot will print the age determined according to the f
 
 ---
 
-## Stage 4
+## [Stage 4](https://hyperskill.org/projects/113/stages/617/implement)
 ### Objective
 
 In this stage, you will program the bot to count from 0 to any positive number users enter.
@@ -70,7 +74,7 @@ Note: each number starts with a new line, and after a number, the bot should pri
 
 ---
 
-## Stage 5
+## [Stage 5](https://hyperskill.org/projects/113/stages/618/implement)
 ### Objective
 
 Your bot can ask anything you want, but there are two rules for your output:
