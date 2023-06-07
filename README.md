@@ -1,6 +1,6 @@
 # Projects for the CodeGorilla bootcamp
 
-From February 13th 2023 until June 2nd 2023 I did the [CodeGorilla](https://codegorilla.nl/) bootcamp. In this repository I will keep track of my projects made with [Hyperskill](https://hyperskill.org/tracks). The bootcamp was split into 4 parts of about 4 weeks each: [Frontend](https://github.com/StefanFB/CodeGorilla#frontend), [Java basics](https://github.com/StefanFB/CodeGorilla#introduction-to-java), [Java advanced](https://github.com/StefanFB/CodeGorilla#java-backend-developer) and the [final project](https://github.com/RudyVane/StudentHousing).
+From February 13th 2023 until June 2nd 2023 I did the [CodeGorilla](https://codegorilla.nl/) bootcamp. In this repository I will keep track of my projects made with [Hyperskill](https://hyperskill.org/tracks). The bootcamp was split into 4 parts of about 4 weeks each: [Frontend](https://github.com/StefanFB/CodeGorilla#frontend), [Introduction to Java](https://github.com/StefanFB/CodeGorilla#introduction-to-java), [Java Backend Developer](https://github.com/StefanFB/CodeGorilla#java-backend-developer) and the [final project](https://github.com/RudyVane/StudentHousing).
 
 Check out my other project made during the bootcamp [here](https://github.com/StefanFB/CodeGorilla-Projects).
 Or check out my **final project** [here](https://github.com/RudyVane/StudentHousing), made in collaboration with [Rudy Vane](https://github.com/RudyVane).
