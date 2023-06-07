@@ -1,10 +1,14 @@
-# Coffee Machine
+# Coffee Machine (JavaScript)
 
-This will be the directory of the Coffee Machine project!
+## Learning outcomes
+This project allows you to get a taste of JavaScript. Practice working with functions, challenge yourself with loops and conditions, and get more experience with JS.
+
+## About
+What can be better than a cup of coffee during a break? Two cups. Press a couple of buttons on the machine, and, voilà, a burst of raw energy is in your hands. But first, we should teach the machine how to do it. In this project, you will work on a coffee machine simulator. This machine uses regular ingredients — coffee, milk, and plastic cups. Should it run out of something, it will show you a notification. Our device will serve espresso, cappuccino, and latte. And since nothing is for free, it will also charge coffee lovers for a cup.
 
 ---
 
-## Stage 1
+## [Stage 1](https://hyperskill.org/projects/220/stages/1101/implement)
 ### Objective
 
 The first version of the program just makes you a coffee. It should print to the standard output what it is doing as it makes the drink.
@@ -22,7 +26,7 @@ Coffee is ready!
 
 ---
 
-## Stage 2
+## [Stage 2](https://hyperskill.org/projects/220/stages/1102/implement)
 ### Objectives
 
 1. First, read the numbers of coffee drinks from the input.
@@ -41,7 +45,7 @@ For 25 cups of coffee you will need:
 
 ---
 
-## Stage 3
+## [Stage 3](https://hyperskill.org/projects/220/stages/1103/implement)
 ### Objectives
 
 Write a program that does the following:
@@ -66,17 +70,17 @@ Yes, I can make that amount of coffee (and even 2 more than that)
 
 ---
 
-## Stage 4
+## [Stage 4](https://hyperskill.org/projects/220/stages/1104/implement)
 ### Objectives
 Write a program that offers to buy one cup of coffee or to fill the supplies or to take its money out. Note that the program is supposed to do one of the mentioned actions at a time. It should also calculate the amounts of remaining ingredients and how much money is left. Display the quantity of supplies before and after purchase.
 
-1. First, your program reads one option from the standard input, which can be "buy", "fill", "take". If a user wants to buy some coffee, the input is "buy". If a special worker thinks that it is time to fill out all the supplies for the coffee machine, the input line will be "fill". If another special worker decides that it is time to take out the money from the coffee machine, you'll get the input "take".
-2. If the user writes "buy" then they must choose one of three types of coffee that the coffee machine can make: espresso, latte, or cappuccino.
+1. First, your program reads one option from the standard input, which can be `"buy"`, `"fill"`, `"take"`. If a user wants to buy some coffee, the input is `"buy"`. If a special worker thinks that it is time to fill out all the supplies for the coffee machine, the input line will be `"fill"`. If another special worker decides that it is time to take out the money from the coffee machine, you'll get the input `"take"`.
+2. If the user writes `"buy"` then they must choose one of three types of coffee that the coffee machine can make: espresso, latte, or cappuccino.
     * For one espresso, the coffee machine needs 250 ml of water and 16 g of coffee beans. It costs $4.
     * For a latte, the coffee machine needs 350 ml of water, 75 ml of milk, and 20 g of coffee beans. It costs $7.
     * And for a cappuccino, the coffee machine needs 200 ml of water, 100 ml of milk, and 12 g of coffee beans. It costs $6.
-3. If the user writes "fill", the program should ask them how much water, milk, coffee and how many disposable cups they want to add into the coffee machine.
-4. If the user writes "take" the program should give all the money that it earned from selling coffee.
+3. If the user writes `"fill"`, the program should ask them how much water, milk, coffee and how many disposable cups they want to add into the coffee machine.
+4. If the user writes `"take"` the program should give all the money that it earned from selling coffee.
 
 At the moment, the coffee machine has $550, 400 ml of water, 540 ml of milk, 120 g of coffee beans, and 9 disposable cups.
 
@@ -104,12 +108,12 @@ $556 of money
 
 ---
 
-## Stage 5
+## [Stage 5](https://hyperskill.org/projects/220/stages/1105/implement)
 ### Objectives
 
-1. Write a program that will work endlessly to make coffee for all interested persons until the shutdown signal is given. Introduce two new options: "remaining" and "exit".
+1. Write a program that will work endlessly to make coffee for all interested persons until the shutdown signal is given. Introduce two new options: `"remaining"` and `"exit"`.
 2. Do not forget that you can be out of resources for making coffee. If the coffee machine doesn't have enough resources to make coffee, the program should output a message that says it can't make a cup of coffee and state what is missing.
-3. And the last improvement to the program at this step — if the user types "buy" to buy a cup of coffee and then changes his mind, they should be able to type "back" to return into the main cycle.
+3. And the last improvement to the program at this step — if the user types `"buy"` to buy a cup of coffee and then changes his mind, they should be able to type `"back"` to return into the main cycle.
 
 Sample output:
 
@@ -208,7 +212,7 @@ Write action (buy, fill, take, remaining, exit):
 
 ---
 
-## Stage 6
+## [Stage 6](https://hyperskill.org/projects/220/stages/1106/implement)
 ### Objective
 * This stage will not be tested. Try to be creative and add something new to your coffee machine. It can be a new type of coffee, different milk flavors, or different volumes of disposable cups.
 
@@ -221,5 +225,3 @@ I added:
    * added logic for choosing M or L, checking that amount and removing that type of cup from the machine
    * added a factor for enlarging the drink (e.g. 1.5)
    * added large cups to the fill route
-
----
