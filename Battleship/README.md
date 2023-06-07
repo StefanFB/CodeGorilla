@@ -1,9 +1,13 @@
 # Battleship
-This project will feature a battleship-type game where you can place your ships on a 10x10 grid and then try to shoot the opponent's ships. The ships can be placed horizontally or vertically, but not diagonally. Also ships are not allowed to cross or touch each other.
+## Learning outcomes
+You will understand the process of developing such a complex program as a game and learn about processing user input and handling errors.
+
+## About
+Writing games is probably one of the most exciting tasks in programming. Develop your own version of the popular "Battleship Game" to play with your friends!
 
 ---
 
-## Stage 1
+## [Stage 1](https://hyperskill.org/projects/125/stages/663/implement)
 ### Objectives
 
 In this stage, you should arrange your ships on the game field. Before you start, let's discuss the conventions of the game:
@@ -17,7 +21,7 @@ In this stage, you should arrange your ships on the game field. Before you start
 
 ---
 
-## Stage 2
+## [Stage 2](https://hyperskill.org/projects/125/stages/664/implement)
 ### Objectives
 
 Take a shot at a prepared game field. You need to indicate the coordinates of the target, and the program should then display a message about a hit or a miss. If the shell misses the target and falls in the water, this cell should be marked with an `M`, and a successful strike is marked by an `X`. After this shot, the game should be stopped.
@@ -26,14 +30,14 @@ If the player managed to hit a ship, the game should display a message `You hit 
 
 ---
 
-## Stage 3
+## [Stage 3](https://hyperskill.org/projects/125/stages/665/implement)
 ### Objectives
 
 In this stage, you need to implement the "fog of war" feature in your game. First, place all the ships on the game field, and then hide them with the symbol `~`. Take a shot like in the previous stage, and after your attempt, the program should print a message along with two versions of the field: one covered with the fog of war and the other one uncovered.
 
 ---
 
-## Stage 4
+## [Stage 4](https://hyperskill.org/projects/125/stages/666/implement)
 ### Objectives
 To complete this step, you should add a check that all the ships were successfully sunk. The game is supposed to go on until all ships go down. The program should print an extra message `You sank a ship!` when all the cells of a particular ship have been hit. Take a look at the examples below!
 
@@ -41,7 +45,7 @@ To complete this step, you should add a check that all the ships were successful
 
 ---
 
-## Stage 5
+## [Stage 5](https://hyperskill.org/projects/125/stages/667/implement)
 ### Objectives
 
 To complete this stage and the entire project, add a PvP component to your game. Now the player will see not only the opponent's screen but their own as well. Place the opponent's screen at the top and your field at the bottom.
