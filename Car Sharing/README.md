@@ -1,13 +1,12 @@
 # Car Sharing 
+Car-sharing is becoming a more and more popular green alternative to owning a car. Let's create a program that manages a car-sharing service allowing companies to rent out their cars and find customers.
+
 ##  Learning outcomes
 During the project implementation, you will learn the basics of SQL and work with the H2 database. You will also learn about advanced Java features such as Collections.
 
-## About
-Car-sharing is becoming a more and more popular green alternative to owning a car. Let's create a program that manages a car-sharing service allowing companies to rent out their cars and find customers.
-
 ---
 
-## Stage 1
+## [Stage 1](https://hyperskill.org/projects/140/stages/758/implement)
 ### Objectives
 
 Create a single table named `COMPANY` with the following columns:
@@ -23,7 +22,7 @@ The database file name is obtained from the command-line arguments. Here is an e
 
 ---
 
-## Stage 2
+## [Stage 2](https://hyperskill.org/projects/140/stages/759/implement)
 ### Objectives
 
 Update your database and add constraints to the `COMPANY` table columns:
@@ -66,7 +65,7 @@ Note that a list numeration should always start with 1.
 
 ---
 
-## Stage 3
+## [Stage 3](https://hyperskill.org/projects/140/stages/760/implement)
 ### Objectives
 
 Create another table named `CAR` with the following columns:
@@ -113,7 +112,7 @@ Note that a list numeration should always start with 1.
 
 ---
 
-## Stage 4 (final)
+## [Stage 4](https://hyperskill.org/projects/140/stages/761/implement)
 ### Objectives
 
 Create a table named `CUSTOMER` with the following columns:
