@@ -1,9 +1,13 @@
 # Coffee Machine (Java)
-This program will create a coffee machine in Java!
+## Learning outcomes
+This project allows you to better understand the basic OOP, its main concepts such as classes, class methods and attributes, and get a taste of Java. Practice working with methods, challenge yourself with loops and conditions, and get more confident with OOP.
+
+## About
+What can be better than a cup of coffee during a break? A coffee that you don’t have to make yourself. It’s enough to press a couple of buttons on the machine and you get a cup of energy; but first, we should teach the machine how to do it. In this project, you will work on programming a coffee machine simulator. The machine works with typical products: coffee, milk, sugar, and plastic cups; if it runs out of something, it shows a notification. You can get three types of coffee: espresso, cappuccino and latte. Since nothing’s for free, it also collects the money.
 
 ---
 
-## Stage 1
+## [Stage 1](https://hyperskill.org/projects/33/stages/175/implement)
 ### Objective
 
 The first version of the program just makes you a coffee. It should print to the standard output what it is doing as it makes the drink.
@@ -21,7 +25,7 @@ Coffee is ready!
 
 ---
 
-## Stage 2
+## [Stage 2](https://hyperskill.org/projects/33/stages/176/implement)
 ### Objectives
 So, we will ask a user to enter the desired amount of coffee, in cups. Given this, you can adjust the program by calculating how much water, coffee, and milk are necessary to make the specified amount of coffee.
 
@@ -31,7 +35,7 @@ So, we will ask a user to enter the desired amount of coffee, in cups. Given thi
 
 ---
 
-## Stage 3
+## [Stage 3](https://hyperskill.org/projects/33/stages/177/implement)
 ### Objectives
 
 Write a program that does the following:
@@ -45,7 +49,7 @@ Like in the previous stage, the coffee machine needs 200 ml of water, 50 ml of m
 
 ---
 
-## Stage 4
+## [Stage 4](https://hyperskill.org/projects/33/stages/178/implement)
 ### Objectives
 Write a program that offers to buy one cup of coffee or to fill the supplies or to take its money out. Note that the program is supposed to do one of the mentioned actions at a time. It should also calculate the amounts of remaining ingredients and how much money is left. Display the quantity of supplies before and after purchase.
 
@@ -62,7 +66,7 @@ To sum up, your program should print the coffee machine's state, process one que
 
 ---
 
-## Stage 5
+## [Stage 5](https://hyperskill.org/projects/33/stages/179/implement)
 ### Objectives
 Write a program that will work endlessly to make coffee for all interested persons until the shutdown signal is given. Introduce two new options:  `"remaining"` and `"exit"`.
 
@@ -72,7 +76,7 @@ And the last improvement to the program at this step — if the user types `"buy
 
 ---
 
-## Stage 6
+## [Stage 6](https://hyperskill.org/projects/33/stages/180/implement)
 ### Objective
 
 Your final task is to refactor the program. Make it so that you can communicate with the coffee machine through a single method.
