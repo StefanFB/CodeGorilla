@@ -6,7 +6,7 @@ Learn about multidimensional arrays, a variety of loops, and how to utilize Java
 
 ---
 
-## Stage 1
+## [Stage 1](https://hyperskill.org/projects/226/stages/1132/implement)
 ### Objectives
 
 Your program should display an empty game board as described below.
@@ -20,7 +20,7 @@ Your program should display an empty game board as described below.
 
 ---
 
-## Stage 2
+## [Stage 2](https://hyperskill.org/projects/226/stages/1133/implement)
 ### Objectives
 
 In this stage, your program should:
@@ -30,7 +30,7 @@ In this stage, your program should:
 
 ---
 
-## Stage 3
+## [Stage 3](https://hyperskill.org/projects/226/stages/1134/implement)
 ### Objectives
 
 In this stage your program should:
@@ -40,7 +40,7 @@ In this stage your program should:
 
 ---
 
-## Stage 4 (Final)
+## [Stage 4](https://hyperskill.org/projects/226/stages/1135/implement)
 ### Objectives
 
 In this stage, implement the following features:
