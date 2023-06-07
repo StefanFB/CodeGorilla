@@ -1,6 +1,10 @@
 # Project To-Do List
 
-This is the directory for my To-Do List project!
+## Learning outcomes
+To complete the project, learn the basics of HTML, CSS, and JavaScript. You will work with several Javascript functions, loops, and objects. Learn how you can store the data in local storage.
+
+## About
+Have you ever had the feeling that you're missing something important? If so, to-do lists can be of help. A clear outline of your daily tasks will help you stay composed and mentally focused. In this project, you will create a simple to-do list that can manage your tasks.
 
 ---
 
@@ -10,11 +14,11 @@ This is the directory for my To-Do List project!
 
 Your HTML file should contain the following elements:
 
-* ``<input>`` element with the #input-task id that indicates the task name;
-* ``<button>`` with the #add-task-button id. Add a task by clicking on this button.
-* ``<ul>`` element with the #task-list id. Store the tasks in this element.
+* `<input>` element with the #input-task id that indicates the task name;
+* `<button>` with the #add-task-button id. Add a task by clicking on this button.
+* `<ul>` element with the #task-list id. Store the tasks in this element.
   
-Create three hardcoded tasks inside the ``<ul>`` element. Wrap each task in `<li>` tags. Each `<li>` tag should have the following elements:
+Create three hardcoded tasks inside the `<ul>` element. Wrap each task in `<li>` tags. Each `<li>` tag should have the following elements:
 
 * `<input>` element of the checkbox type. Mark the task as complete by clicking on it.
 * `<span>` element with the task class. Store the task name inside this element.
